@@ -12,6 +12,6 @@
 */
 import { platformNativeScriptDynamic } from "nativescript-angular/platform";
 import { AppModule } from "./app.module";
-//import { statusbarTransparente } from "./statusbar";
-//statusbarTransparente();
+import { statusbarTransparente } from "./utilidades/statusbar";
+statusbarTransparente();
 platformNativeScriptDynamic().bootstrapModule(AppModule);
