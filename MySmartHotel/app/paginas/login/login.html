@@ -1,0 +1,9 @@
+<StackLayout>
+  <Image src="~/recursos/mundo.png" stretch="none" horizontalAlignment="center"></Image>
+  <Label class="h1" text="Acceder" textWrap="true"></Label>
+  <Label class="body" text="Introduce tus datos de acceso" textWrap="true"></Label>
+  <TextField hint="Correo" spellcheck="false" [(ngModel)]="usuario.correo"></TextField>
+  <TextField hint="Clave" secure="true" spellcheck="false" [(ngModel)]="usuario.clave"></TextField>
+  <Button class="boton-acceder" (tap)="acceder()" text="Acceder"></Button>
+  <Button  class="boton-olvide" text="Olvide mi clave gg"></Button>
+</StackLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Tema splash screen -->
+    <style name="TemaSplashBase" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="toolbarStyle">@style/TemaToolbar</item>
+        <item name="colorPrimary">@color/primario</item>
+        <item name="colorPrimaryDark">@color/primario_oscuro</item>
+        <item name="colorAccent">@color/acento</item>
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="TemaSplash" parent="TemaSplashBase">
+    </style>
+
+    <!-- Tema App principal -->
+    <style name="TemaBase" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="toolbarStyle">@style/TemaToolbar</item>
+        <item name="colorPrimary">@color/primario</item>
+        <item name="colorPrimaryDark">@color/primario_oscuro</item>
+        <item name="colorAccent">@color/acento</item>
+    </style>
+
+    <style name="Tema" parent="TemaBase">
+    </style>
+
+    <!-- Tema para el Actionbar -->
+    <style name="TemaToolbarBase" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/primario</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat</item>
+
+    </style>
+
+    <style name="TemaToolbar" parent="TemaToolbarBase">
+    </style>
+</resources>

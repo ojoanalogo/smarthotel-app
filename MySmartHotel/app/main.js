@@ -1,0 +1,19 @@
+/**
+ * main.ts
+ *
+ * Declaraciones e inicializar el modulo app con NativeScript
+ *
+ * @author Alfonso Reyes Cortés | hola@mrarc.xyz
+ * @version 0.0.1
+ */
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+* Imports
+*/
+var platform_1 = require("nativescript-angular/platform");
+var app_module_1 = require("./app.module");
+//import { statusbarTransparente } from "./statusbar";
+//statusbarTransparente();
+platform_1.platformNativeScriptDynamic().bootstrapModule(app_module_1.AppModule);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm1haW4udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7R0FPRzs7O0FBRUg7O0VBRUU7QUFDRiwwREFBNEU7QUFDNUUsMkNBQXlDO0FBQ3pDLHNEQUFzRDtBQUN0RCwwQkFBMEI7QUFDMUIsc0NBQTJCLEVBQUUsQ0FBQyxlQUFlLENBQUMsc0JBQVMsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG7CoCogbWFpbi50c1xuwqAqXG7CoCogRGVjbGFyYWNpb25lcyBlIGluaWNpYWxpemFyIGVsIG1vZHVsbyBhcHAgY29uIE5hdGl2ZVNjcmlwdFxuwqAqXG7CoCogQGF1dGhvciBBbGZvbnNvIFJleWVzIENvcnTDqXMgfCBob2xhQG1yYXJjLnh5elxuICogQHZlcnNpb24gMC4wLjFcbsKgKi9cblxuLyoqXG4qIEltcG9ydHNcbiovXG5pbXBvcnQgeyBwbGF0Zm9ybU5hdGl2ZVNjcmlwdER5bmFtaWMgfSBmcm9tIFwibmF0aXZlc2NyaXB0LWFuZ3VsYXIvcGxhdGZvcm1cIjtcbmltcG9ydCB7IEFwcE1vZHVsZSB9IGZyb20gXCIuL2FwcC5tb2R1bGVcIjtcbi8vaW1wb3J0IHsgc3RhdHVzYmFyVHJhbnNwYXJlbnRlIH0gZnJvbSBcIi4vc3RhdHVzYmFyXCI7XG4vL3N0YXR1c2JhclRyYW5zcGFyZW50ZSgpO1xucGxhdGZvcm1OYXRpdmVTY3JpcHREeW5hbWljKCkuYm9vdHN0cmFwTW9kdWxlKEFwcE1vZHVsZSk7XG4iXX0=
