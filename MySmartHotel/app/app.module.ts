@@ -15,6 +15,7 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
+import { HttpModule }    from '@angular/http';
 
 import { ComponenteLogin } from "./paginas/login/login.componente";
 
@@ -25,7 +26,8 @@ import { ComponenteLogin } from "./paginas/login/login.componente";
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptFormsModule
+        NativeScriptFormsModule,
+        HttpModule
     ],
     declarations: [
         AppComponent,

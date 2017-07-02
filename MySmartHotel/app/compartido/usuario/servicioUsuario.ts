@@ -8,6 +8,4 @@ export class ServicioUsuario {
   login() {
     //
   }
-
-
 }
