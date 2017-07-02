@@ -12,15 +12,18 @@
 import {Component, OnInit } from '@angular/core';
 import { Page } from "ui/page";
 import { Usuario } from "../../compartido/usuario/Usuario";
+import { ServicioUsuario } from "../../compartido/usuario/ServicioUsuario";
 
 @Component({
   selector: 'login',
+  providers: [ ServicioUsuario ],
   templateUrl: 'paginas/login/login.html',
   styleUrls: ["paginas/login/login-global.css", "paginas/login/login.css"]
 })
+
 export class ComponenteLogin implements OnInit {
   usuario: Usuario;
-  constructor(private page : Page) {
+  constructor(private page : Page, private servicioUsuario : ServicioUsuario) {
     this.usuario = new Usuario();
    }
   ngOnInit() {
@@ -32,5 +35,6 @@ export class ComponenteLogin implements OnInit {
   }
   acceder() {
     alert(this.usuario.correo);
+    //this.servicioUsuario
   }
 }
