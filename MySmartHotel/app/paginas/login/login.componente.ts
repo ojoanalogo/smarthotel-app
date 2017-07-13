@@ -34,7 +34,10 @@ export class ComponenteLogin implements OnInit {
     console.log("HOLA");
   }
   acceder() {
-    alert(this.usuario.correo);
-    //this.servicioUsuario
+    alert("Accediendo");
+    this.servicioUsuario.login(this.usuario).subscribe(
+          () => console.log("Okay"),
+          (error) => alert("ERROR")
+    );
   }
 }
