@@ -1,15 +1,3 @@
-/**
- * app.module.ts
- *
- * Declaracion de modulos y componentes
- *
- * @author Alfonso Reyes Cortés | hola@mrarc.xyz
- * @version 0.0.1
- */
-
-/**
-* Imports
-*/
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -17,7 +5,20 @@ import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { HttpModule }    from '@angular/http';
 
-import { ComponenteLogin } from "./paginas/login/login.componente";
+import { LoginComponent } from "./pages/login/login.component";
+import { MenuComponent } from "./pages/menu/menu.component";
+import { TopbarComponent } from "./components/topbar";
+
+import { AuthGuard } from "./services/authguard.service";
+import { BackendService } from "./services/backend.service";
+
+import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
+import { registerElement } from "nativescript-angular";
+
+registerElement("Gradient", () => require("nativescript-gradient").Gradient);
+registerElement("Ripple", () => require("nativescript-ripple").Ripple);
+registerElement("CardView", () => require("nativescript-cardview").CardView);
+registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 
 @NgModule({
     bootstrap: [
@@ -27,17 +28,24 @@ import { ComponenteLogin } from "./paginas/login/login.componente";
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptFormsModule,
-        HttpModule
+        HttpModule,
+        TNSFontIconModule.forRoot({
+    			'fa': './assets/font-awesome.css'
+    		})
     ],
     declarations: [
         AppComponent,
-        ComponenteLogin,
+        LoginComponent,
+        MenuComponent,
+        TopbarComponent
     ],
     providers: [
-        //ItemService
+      BackendService,
+       AuthGuard
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
+
 export class AppModule { }

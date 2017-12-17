@@ -1,0 +1,47 @@
+<topbar></topbar>
+<TabView style="color:#fff;" selectedIndex="0">
+    <StackLayout *tabItem="{title: 'Accesos'}">
+      <ScrollView>
+      <!-- Tarjeta Usuario -->
+      <GridLayout style="background-color:#212121; color:#fff; height:70" rows="*" columns="64, auto, *">
+        <Image src="~/assets/book.png" row="0" col="0" class="avatar-circle"></Image>
+          <Label style="color:#fff;" row="0" col="1" text="Alfonso Reyes"></Label>
+          <Label style="color:#fff; text-align: right;" row="0" col="2" text="."></Label>
+      </GridLayout>
+      <ScrollView id="accesos" style="background-color: #EAEAEA; height: 82;" orientation="horizontal">
+      <GridLayout class="accesos" orientation="horizontal" rows="*" columns="*, *, *, *">
+        <Ripple (tap)="this.router.navigate(['notes'])" rippleColor="#c8c8c8" row="0" col="0">
+          <StackLayout class="accesos">
+            <Image src="~/assets/schedule.png" height="60"></Image>
+            <Label class="centrar" text="Horario" textWrap="true"></Label>
+          </StackLayout>
+        </Ripple>
+          <Ripple rippleColor="#c8c8c8" row="0" col="1">
+          <StackLayout class="accesos">
+            <Image src="~/assets/news.png" height="60"></Image>
+            <Label class="centrar" text="Noticias" textWrap="true"></Label>
+          </StackLayout>
+        </Ripple>
+          <Ripple rippleColor="#c8c8c8" row="0" col="2">
+            <StackLayout class="accesos">
+            <Image src="~/assets/clock.png" height="60"></Image>
+            <Label class="centrar" text="Bla" textWrap="true"></Label>
+          </StackLayout>
+        </Ripple>
+          <Ripple rippleColor="#c8c8c8" row="0" col="3">
+            <StackLayout class="accesos">
+            <Image src="~/assets/megaphone.png" height="60"></Image>
+            <Label class="centrar" text="Xddd" textWrap="true"></Label>
+          </StackLayout>
+        </Ripple>
+      </GridLayout>
+    </ScrollView>
+  </ScrollView>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Noticias'}">
+        <Label text="Second tab item"></Label>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Examenes'}">
+        <Label text="Third tab item"></Label>
+    </StackLayout>
+</TabView>

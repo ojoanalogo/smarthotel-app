@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="primario">#00BCD4</color>
-  <color name="primario_oscuro">#0097A7</color>
-  <color name="primario_ligero">#B2EBF2</color>
-  <color name="acento">#009688</color>
-  <color name="texto_primario">#212121</color>
-  <color name="texto_secundario">#757575</color>
-  <color name="iconos">#FFFFFF</color>
-  <color name="divisor">#BDBDBD</color>
+    <color name="ns_primary">#F5F5F5</color>
+	<color name="ns_primaryDark">#757575</color>
+	<color name="ns_accent">#33B5E5</color>
+    <color name="ns_blue">#272734</color>
 </resources>

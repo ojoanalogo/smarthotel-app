@@ -1,24 +1,15 @@
-/**
- * app.routing.ts
- *
- * Manejo de rutas de la aplicación
- *
- * @author Alfonso Reyes Cortés | hola@mrarc.xyz
- * @version 0.0.1
- */
-
-/**
-* Imports
-*/
 import { NgModule } from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { Routes } from "@angular/router";
+import { Routes, CanActivate } from "@angular/router";
 
-import { ComponenteLogin } from "./paginas/login/login.componente";
+import { LoginComponent } from "./pages/login/login.component";
+import { MenuComponent } from "./pages/menu/menu.component";
+import { AuthGuard } from "./services/authguard.service";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/login", pathMatch: "full" },
-    { path: "login", component: ComponenteLogin }
+    { path: "", redirectTo: "/menu", pathMatch: "full" },
+    { path: "login", component: LoginComponent},
+    { path: "menu", component: MenuComponent, canActivate: [AuthGuard] }
     //{ path: "item/:id", component: ItemDetailComponent },
 ];
 

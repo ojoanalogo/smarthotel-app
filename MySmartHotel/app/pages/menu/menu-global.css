@@ -1,0 +1,46 @@
+.fa {
+  font-family: FontAwesome, fontawesome-webfont;
+}
+Label {
+  color: #000;
+}
+.centrar {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+StackLayout {
+  border: 5px solid red;
+}
+.header {
+  background-color: #4FC3F7;
+  height: 300;
+}
+slides {
+  height: 300;
+  padding-bottom: 300;
+}
+
+StackLayout.accesos {
+  padding-left: 10;
+  padding-right: 10;
+}
+TabView {
+  tab-text-color: #FFFFFF;
+  selected-tab-text-color: #FFFFFF;
+  android-selected-tab-text-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+}
+.avatar-circle {
+    font-size:35;
+    height: 50;
+    width: 50;
+    color: #fff;
+    background-color: #512DA8;
+    border-radius: 25;
+    margin-left: 16;
+    margin-top: 5;
+    horizontal-align: center;
+    vertical-align: center;
+    text-align: center;
+}
