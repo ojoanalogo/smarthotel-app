@@ -1,22 +1,21 @@
 <Gradient direction="to bottom right" colors="#4DB6AC, #009688, #00796B, #004D40">
 <ScrollView orientation="vertical">
 <StackLayout class="wrap">
-  <StackLayout style="padding-bottom: 80;"></StackLayout>
-<Image src="~/assets/logo.png" height="100" stretch="aspectFit"></Image>
-<Label class="centrar" text="MySmartHotel"></Label>
-<Label class="texto-bienvenida" text="¡Bienvenido!" textWrap="true"></Label>
-<Label class="centrar" text="Introduce tus credenciales de huesped para poder usar la app" textWrap="true"></Label>
+  <StackLayout style="padding-bottom: 40;"></StackLayout>
+<Image src="~/assets/logo.png" height="150" stretch="aspectFit"></Image>
+<Label class="title center" text="MySmartHotel"></Label>
+<Label class="center" text="Introduce tus credenciales de huesped para poder usar la app" textWrap="true"></Label>
 <!-- Grid layout para el acceso -->
 <GridLayout class="loginGrid" rows="*, *, *, *" columns="32, *">
-  <Label row="0" col="1" text="Cuarto"></Label>
-  <Label row="1" col="0" class="fa" style="color: #fff; font-size:32;" [text]="'fa-door' | fonticon" text="a"></Label>
-  <TextField row="1" col="1" hint="hey@ejemplo.com" text="" keyboardType="email" [(ngModel)]="this.user.email"></TextField>
+  <Label row="0" col="1" text="Correo"></Label>
+  <Label row="1" col="0" class="fa" style="color: #fff; font-size:32;" [text]="'fa-at' | fonticon"></Label>
+  <TextField row="1" col="1" hint="Tu correo" text="" keyboardType="email" [(ngModel)]="this.user.email"></TextField>
   <Label row="2" col="1" text="Clave"></Label>
-  <Label row="3" col="0" class="fa" style="color: #fff; font-size:32;" [text]="'fa-lock' | fonticon" text="a"></Label>
+  <Label row="3" col="0" class="fa" style="color: #fff; font-size:32;" [text]="'fa-lock' | fonticon"></Label>
   <TextField row="3" col="1" hint="•••" text="" secure="true" [(ngModel)]="this.user.password"></TextField>
 </GridLayout>
 <GridLayout class="btnGrid" rows="*,*" columns="*, 220, *">
-  <Button row="0" col="1" text="Acceder"></Button>
+  <Button (tap)="login()" row="0" col="1" text="Acceder"></Button>
 </GridLayout>
 </StackLayout>
 </ScrollView>

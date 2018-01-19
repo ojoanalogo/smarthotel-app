@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Page } from "ui/page";
 import { Router } from "@angular/router";
 import { User } from "../../models/user.model";
+import { LoginService } from "../../services/login.service";
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { TNSFancyAlert, TNSFancyAlertButton } from 'nativescript-fancyalert';
 import { Validator } from "class-validator";
@@ -17,15 +18,31 @@ export class LoginComponent implements OnInit {
   user: User;
   registering = false;
   loader: LoadingIndicator;
-  constructor(private page : Page, private router : Router, private icon : TNSFontIconService) {
+  constructor(private page : Page, private router : Router, private icon : TNSFontIconService, private loginService : LoginService) {
     this.user = new User();
-    this.user.email = "a@a.com";
-    this.user.password = "comodoro";
+    this.user.email = "arc980103@gmail.com";
+    this.user.password = "comodorops3";
     this.loader = new LoadingIndicator();
    }
-  ngOnInit() :void {
+  ngOnInit() : void {
     this.page.actionBarHidden = true;
     this.page.backgroundColor = "#03A9F4";
+  }
+
+  login() : void {
+    this.loginService.login(this.user).subscribe((res)=>{
+      //console.log(res);
+    },
+    (res) => {
+    //  alert("error");
+    }
+   );
+      /*this.loginService.login(this.user)
+        .subscribe(() => {
+            alert("Your account was successfully created.");
+          },
+          () => alert("Unfortunately we were unable to create your account.")
+        );*/
   }
 
   validate(user) : boolean {
