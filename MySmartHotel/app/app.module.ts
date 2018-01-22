@@ -13,19 +13,16 @@ import { TopbarComponent } from "./components/topbar";
 import { AuthGuard } from "./services/authguard.service";
 import { BackendService } from "./services/backend.service";
 import { LoginService } from "./services/login.service";
+import { PlacesService } from "./services/places.service";
+import { PlacesStorage } from "./services/places-storage.service";
 
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { registerElement } from "nativescript-angular";
 
-let nsFacebook = require('nativescript-facebook');
-
-application.on(application.launchEvent, function (args) {
-    nsFacebook.init("1981880128746622");
-});
-
 registerElement("Gradient", () => require("nativescript-gradient").Gradient);
 registerElement("Mapbox", () => require("nativescript-mapbox").MapboxView);
 registerElement("CardView", () => require("nativescript-cardview").CardView);
+registerElement("Ripple", () => require("nativescript-ripple").Ripple);
 
 @NgModule({
     bootstrap: [
@@ -49,7 +46,9 @@ registerElement("CardView", () => require("nativescript-cardview").CardView);
     providers: [
       BackendService,
        AuthGuard,
-       LoginService
+       LoginService,
+       PlacesService,
+       PlacesStorage
     ],
     schemas: [
         NO_ERRORS_SCHEMA

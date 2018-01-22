@@ -9,7 +9,7 @@ StackLayout.wrap Label {
   margin-right: 15;
 }
 StackLayout Label {
-  color: #000;
+  color: #fff;
 }
 GridLayout.loginGrid {
   margin-left: 55;
@@ -28,7 +28,6 @@ GridLayout.btnGrid {
   margin-top: 10;
   padding-bottom: 5;
 }
-
 Label {
   color: #fff;
 }

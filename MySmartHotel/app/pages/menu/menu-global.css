@@ -37,10 +37,10 @@ StackLayout.glass>.city {
   font-weight: 400;
   margin-top: 3;
 }
-TabView {
-  tab-text-color: #FFFFFF;
-  selected-tab-text-color: #FFFFFF;
-  android-selected-tab-text-color: #FFFFFF;
-  border-bottom-color: #000;
-  highlighted-color: #FFFFFF;
+CardView.menu {
+  margin-top: -35;
+}
+CardView.menu Label {
+  color: #fff;
+  margin-bottom: 5;
 }
