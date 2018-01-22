@@ -1,47 +1,68 @@
 <topbar></topbar>
-<TabView style="color:#fff;" selectedIndex="0">
-    <StackLayout *tabItem="{title: 'Accesos'}">
+<TabView>
+    <StackLayout *tabItem="{title: 'Menu 🎛️'}" >
       <ScrollView>
-      <!-- Tarjeta Usuario -->
-      <GridLayout style="background-color:#212121; color:#fff; height:70" rows="*" columns="64, auto, *">
-        <Image src="~/assets/book.png" row="0" col="0" class="avatar-circle"></Image>
-          <Label style="color:#fff;" row="0" col="1" text="Alfonso Reyes"></Label>
-          <Label style="color:#fff; text-align: right;" row="0" col="2" text="."></Label>
-      </GridLayout>
-      <ScrollView id="accesos" style="background-color: #EAEAEA; height: 82;" orientation="horizontal">
-      <GridLayout class="accesos" orientation="horizontal" rows="*" columns="*, *, *, *">
-        <Ripple (tap)="this.router.navigate(['notes'])" rippleColor="#c8c8c8" row="0" col="0">
-          <StackLayout class="accesos">
-            <Image src="~/assets/schedule.png" height="60"></Image>
-            <Label class="centrar" text="Horario" textWrap="true"></Label>
+        <StackLayout>
+        <StackLayout class="weather">
+          <StackLayout class="glass">
+            <Label class="med center" text="26°C"></Label>
+            <Label class="city center" text="Culiacán, Sinaloa" textWrap="true"></Label>
           </StackLayout>
-        </Ripple>
-          <Ripple rippleColor="#c8c8c8" row="0" col="1">
-          <StackLayout class="accesos">
-            <Image src="~/assets/news.png" height="60"></Image>
-            <Label class="centrar" text="Noticias" textWrap="true"></Label>
-          </StackLayout>
-        </Ripple>
-          <Ripple rippleColor="#c8c8c8" row="0" col="2">
-            <StackLayout class="accesos">
-            <Image src="~/assets/clock.png" height="60"></Image>
-            <Label class="centrar" text="Bla" textWrap="true"></Label>
-          </StackLayout>
-        </Ripple>
-          <Ripple rippleColor="#c8c8c8" row="0" col="3">
-            <StackLayout class="accesos">
-            <Image src="~/assets/megaphone.png" height="60"></Image>
-            <Label class="centrar" text="Xddd" textWrap="true"></Label>
-          </StackLayout>
-        </Ripple>
-      </GridLayout>
-    </ScrollView>
-  </ScrollView>
+        </StackLayout>
+        <CardView style="margin-top: -25;" margin="15" elevation="10" radius="5" >
+          <GridLayout rows="*, *" columns="*, *">
+              <StackLayout style="background-color:#eee;" row="0" col="0">
+                <Label text="a" textWrap="true"></Label>
+              </StackLayout>
+              <StackLayout style="background-color:#000;" row="0" col="1">
+                <Label text="a" textWrap="true"></Label>
+              </StackLayout>
+              <StackLayout style="background-color:#000;" row="1" col="0">
+                <Label text="a" textWrap="true"></Label>
+              </StackLayout>
+              <StackLayout style="background-color:#eee;" row="1" col="1">
+                <Label text="a" textWrap="true"></Label>
+              </StackLayout>
+          </GridLayout>
+        </CardView>
+      </StackLayout>
+      </ScrollView>
     </StackLayout>
-    <StackLayout *tabItem="{title: 'Noticias'}">
-        <Label text="Second tab item"></Label>
+    <StackLayout *tabItem="{title: 'Mapa 🗺️'}">
+      <ContentView height="300" width="100%">
+  <Mapbox
+      accessToken="pk.eyJ1IjoibXJhcmMiLCJhIjoiY2pjbnFhOGl2MWt5ZTMwcGY1dDdwajVydSJ9.7dAnNN6tF3yu8caZ07k0Cw"
+      mapStyle="light"
+      latitude="24.7880443"
+      longitude="-107.3983973"
+      hideCompass="false"
+      zoomLevel="15"
+      showUserLocation="true"
+      disableZoom="false"
+      disableRotation="true"
+      disableScroll="false"
+      disableTilt="false">
+  </Mapbox>
+</ContentView>
+<StackLayout>
+  <Label text="¿Qué es lo que quieres hacer ahora?" textWrap="true"></Label>
+  <GridLayout rows="60, 60" columns="*, *">
+<Button row="0" col="0" class="fa" text="&#xf19c;  Museos"></Button>
+<Button row="0" col="1" class="fa" text="&#xf0f4;  Restaurantes"></Button>
+<Button row="1" col="0" class="fa" text="&#xf030;  Entretenimiento"></Button>
+<Button row="1" col="1" class="fa" text="&#xf1bb;  Parques"></Button>
+  </GridLayout>
+
+  <!-- <ListView [items]="places">
+      <ng-template let-place="item" let-i="index" let-odd="odd" let-even="even">
+          <GridLayout columns="*, *">
+            <Label col="0" style="color: #000;" [text]="place.id"></Label>
+              <Label col="1" style="color: #000;" [text]="place.name"></Label>
+          </GridLayout>
+      </ng-template>
+  </ListView> -->
+</StackLayout>
     </StackLayout>
-    <StackLayout *tabItem="{title: 'Examenes'}">
-        <Label text="Third tab item"></Label>
+    <StackLayout *tabItem="{title: 'Habitación 🛌'}">
     </StackLayout>
 </TabView>

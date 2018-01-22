@@ -6,12 +6,12 @@
 <Label class="title center" text="MySmartHotel"></Label>
 <Label class="center" text="Introduce tus credenciales de huesped para poder usar la app" textWrap="true"></Label>
 <!-- Grid layout para el acceso -->
-<GridLayout class="loginGrid" rows="*, *, *, *" columns="32, *">
+<GridLayout class="loginGrid" rows="*, *, *, *" columns="44, *">
   <Label row="0" col="1" text="Correo"></Label>
-  <Label row="1" col="0" class="fa" style="color: #fff; font-size:32;" [text]="'fa-at' | fonticon"></Label>
+  <Label row="1" col="0" class="fa" style="color: #fff; font-size: 18;" [text]="'fa-at' | fonticon"></Label>
   <TextField row="1" col="1" hint="Tu correo" text="" keyboardType="email" [(ngModel)]="this.user.email"></TextField>
   <Label row="2" col="1" text="Clave"></Label>
-  <Label row="3" col="0" class="fa" style="color: #fff; font-size:32;" [text]="'fa-lock' | fonticon"></Label>
+  <Label row="3" col="0" class="fa" style="color: #fff; font-size: 24;" [text]="'fa-lock' | fonticon"></Label>
   <TextField row="3" col="1" hint="•••" text="" secure="true" [(ngModel)]="this.user.password"></TextField>
 </GridLayout>
 <GridLayout class="btnGrid" rows="*,*" columns="*, 220, *">

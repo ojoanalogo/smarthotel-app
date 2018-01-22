@@ -2,45 +2,45 @@
   font-family: FontAwesome, fontawesome-webfont;
 }
 Label {
-  color: #000;
+  color: #fff;
 }
-.centrar {
+.center {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
-StackLayout {
-  border: 5px solid red;
+StackLayout Label {
+  color: #000;
 }
-.header {
-  background-color: #4FC3F7;
+StackLayout.weather {
+  background-image: url("~/assets/puente.jpeg");
+  background-size: cover;
   height: 300;
+  color: #fff;
 }
-slides {
-  height: 300;
-  padding-bottom: 300;
+StackLayout.glass Label {
+  color: #fff;
 }
-
-StackLayout.accesos {
-  padding-left: 10;
-  padding-right: 10;
+StackLayout.weather>.glass {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: block;
+  margin: 0 0;
+  width: 60%;
+}
+StackLayout.glass>.med {
+  font-size: 48;
+  font-weight: 500;
+  margin-top: 16;
+}
+StackLayout.glass>.city {
+  font-size: 18;
+  font-weight: 400;
+  margin-top: 3;
 }
 TabView {
   tab-text-color: #FFFFFF;
   selected-tab-text-color: #FFFFFF;
   android-selected-tab-text-color: #FFFFFF;
-  border-bottom-color: #FFFFFF;
-}
-.avatar-circle {
-    font-size:35;
-    height: 50;
-    width: 50;
-    color: #fff;
-    background-color: #512DA8;
-    border-radius: 25;
-    margin-left: 16;
-    margin-top: 5;
-    horizontal-align: center;
-    vertical-align: center;
-    text-align: center;
+  border-bottom-color: #000;
+  highlighted-color: #FFFFFF;
 }

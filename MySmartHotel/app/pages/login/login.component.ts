@@ -30,19 +30,18 @@ export class LoginComponent implements OnInit {
   }
 
   login() : void {
-    this.loginService.login(this.user).subscribe((res)=>{
-      //console.log(res);
+    if(this.validate(this.user)) {
+      this.loader.show({message:"Comprobando datos"});
+    this.loginService.login(this.user).subscribe(()=>{
+      this.loader.hide();
+      this.router.navigate(["/menu"])
     },
     (res) => {
-    //  alert("error");
+      this.loader.hide();
+      TNSFancyAlert.showError("Datos incorrectos", "Correo/clave no validos", "Entendido");
     }
    );
-      /*this.loginService.login(this.user)
-        .subscribe(() => {
-            alert("Your account was successfully created.");
-          },
-          () => alert("Unfortunately we were unable to create your account.")
-        );*/
+    }
   }
 
   validate(user) : boolean {

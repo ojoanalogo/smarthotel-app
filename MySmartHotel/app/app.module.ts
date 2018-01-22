@@ -1,3 +1,4 @@
+import * as application from 'application';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -16,10 +17,15 @@ import { LoginService } from "./services/login.service";
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { registerElement } from "nativescript-angular";
 
+let nsFacebook = require('nativescript-facebook');
+
+application.on(application.launchEvent, function (args) {
+    nsFacebook.init("1981880128746622");
+});
+
 registerElement("Gradient", () => require("nativescript-gradient").Gradient);
-registerElement("Ripple", () => require("nativescript-ripple").Ripple);
+registerElement("Mapbox", () => require("nativescript-mapbox").MapboxView);
 registerElement("CardView", () => require("nativescript-cardview").CardView);
-registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 
 @NgModule({
     bootstrap: [

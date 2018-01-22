@@ -1,13 +1,15 @@
-.fa {
-  font-family: FontAwesome, fontawesome-webfont;
-}
-
 Gradient {
   height: auto;
+}
+.fa {
+  font-family: FontAwesome, fontawesome-webfont;
 }
 StackLayout.wrap Label {
   margin-left: 15;
   margin-right: 15;
+}
+StackLayout Label {
+  color: #000;
 }
 GridLayout.loginGrid {
   margin-left: 55;

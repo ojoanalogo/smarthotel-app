@@ -22,12 +22,12 @@ export class LoginService {
         }),
         { headers: headers }
       )
-      .map(response => {
-        response.json();
-        console.dir(response.json());
-      })
+      .map(response => response.json())
       .do(data => {
-         
+         if (data.code === 1 && data.response.token) {
+           BackendService.token = data.response.token;
+           return data;
+         }
       })
       .catch(this.handleErrors);
     }

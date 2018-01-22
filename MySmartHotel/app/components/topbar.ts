@@ -2,16 +2,12 @@ import { Component } from '@angular/core';
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { Color } from "color";
 import { Router } from "@angular/router";
+import { TnsSideDrawer } from 'nativescript-sidedrawer'
 
 @Component({
   selector: 'topbar',
-  template: `<ActionBar title="SmartHotel">
-    <NavigationButton icon="res://ic_menu_white_24dp"></NavigationButton>
-    <ActionItem>
-      <Ripple rippleColor="#c8c8c8">
-        <Label class="fa" style="color:#fff; font-size: 24; margin-right:24;" [text]="'fa-sticky-note' | fonticon"></Label>
-      </Ripple>
-    </ActionItem>
+  template: `<ActionBar title="MySmartHotel">
+    <NavigationButton (tap)="toggleSidedrawer()" icon="res://ic_menu_white_24dp"></NavigationButton>
   </ActionBar>`,
   styles: [`.fa {
     font-family: FontAwesome, fontawesome-webfont;
@@ -19,5 +15,25 @@ import { Router } from "@angular/router";
 })
 
 export class TopbarComponent {
-  constructor(private router : Router, private fonticon: TNSFontIconService) {}
+  constructor(private router : Router, private fonticon: TNSFontIconService) {
+    TnsSideDrawer.build({
+      headerBackgroundColor:  new Color("#00796B"),
+      backgroundColor: new Color("#FFFFFF"),
+      textColor: new Color("#000000"),
+	templates: [{
+		title: 'Inicio'
+	}, {
+		title: 'Habitación'
+	}],
+	title: 'MySmartHotel',
+	subtitle: 'DEV TEST',
+	listener: (index) => {
+		//this.i = index
+	},
+	context: this,
+})
+  }
+  toggleSidedrawer() : void {
+    TnsSideDrawer.toggle()
+  }
 }
