@@ -3,9 +3,10 @@ import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { Color } from "color";
 import { Router } from "@angular/router";
 import { TnsSideDrawer } from 'nativescript-sidedrawer'
+import { MenuComponent } from "../../pages/menu/menu.component";
 
 @Component({
-  selector: 'topbar',
+  selector: 'TopBar',
   template: `<ActionBar title="MySmartHotel">
     <NavigationButton (tap)="toggleSidedrawer()" icon="res://ic_menu_white_24dp"></NavigationButton>
   </ActionBar>`,
@@ -15,7 +16,7 @@ import { TnsSideDrawer } from 'nativescript-sidedrawer'
 })
 
 export class TopbarComponent {
-  constructor(private router : Router, private fonticon: TNSFontIconService) {
+  constructor(private router : Router, private fonticon: TNSFontIconService, private menuComponent : MenuComponent) {
     TnsSideDrawer.build({
       headerBackgroundColor:  new Color("#00796B"),
       backgroundColor: new Color("#FFFFFF"),
@@ -23,12 +24,15 @@ export class TopbarComponent {
 	templates: [{
 		title: 'Inicio'
 	}, {
-		title: 'Habitación'
-	}],
+		title: 'Mapa'
+	},
+  {
+   title: 'Habitación'
+ }],
 	title: 'MySmartHotel',
 	subtitle: 'DEV TEST',
 	listener: (index) => {
-		//this.i = index
+    menuComponent.changeTab(index)
 	},
 	context: this,
 })

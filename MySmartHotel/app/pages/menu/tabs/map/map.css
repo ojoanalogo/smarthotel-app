@@ -1,0 +1,25 @@
+.fab {
+  height: 54;
+  width: 54;
+  margin: 28;
+  background-color: #ff4081;
+  horizontal-align: right;
+  vertical-align: bottom;
+}
+Label {
+  color: #9E9E9E;
+  font-size: 12;
+  text-align: center;
+}
+.page-content {
+  vertical-align: center;
+  horizontal-align: center;
+}
+.page-content > .page-icon {
+  font-size: 72;
+  vertical-align: top;
+  horizontal-align: center;
+  color: #E0E0E0 ;
+  margin-top: 20%;
+  padding-bottom: 15;
+}

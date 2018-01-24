@@ -1,0 +1,16 @@
+@import '/tns_modules/nativescript-theme-core/css/core.light.css';
+@import '/assets/custom.css';
+ActionBar {
+  color: #fff;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.fa {
+  font-family: FontAwesome, fontawesome-webfont;
+}
+Label {
+  color: #000;
+}

@@ -1,15 +1,15 @@
 import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes, CanActivate } from "@angular/router";
+import { NativeScriptRouterModule } from "nativescript-angular/router";
 
-import { LoginComponent } from "./pages/login/login.component";
 import { MenuComponent } from "./pages/menu/menu.component";
+import { LoginComponent } from "./pages/login/login.component";
 import { AuthGuard } from "./services/authguard.service";
 
 const routes: Routes = [
     { path: "", redirectTo: "/menu", pathMatch: "full" },
     { path: "login", component: LoginComponent},
-    { path: "menu", component: MenuComponent, canActivate: [AuthGuard] }
+    { path: "menu", component: MenuComponent, canActivate:[AuthGuard]}
     //{ path: "item/:id", component: ItemDetailComponent },
 ];
 

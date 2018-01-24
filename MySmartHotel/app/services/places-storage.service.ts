@@ -7,8 +7,8 @@ export class PlacesStorage {
   static get token() : string {
     return getString("token");
   }
-  static set token(userToken : string) {
-    setString("token", userToken);
+  static set places(userToken : string) {
+    setString("places", userToken);
   }
 
 }

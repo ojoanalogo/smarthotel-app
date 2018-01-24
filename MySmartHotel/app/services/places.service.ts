@@ -10,15 +10,16 @@ import "rxjs/add/operator/map";
 export class PlacesService {
   constructor(private http: Http) {}
 
-  getPlaces(lat : string, long : string) {
+  public getPlaces(lat : string, long : string) {
     let headers = new Headers();
     let accessToken: string = "1981880128746622|oEaM5iMIKzbe6640AfT9ABjlmkU";
     headers.append("Content-Type", "application/json");
     return this.http.get(BackendService.fbURL +
-    "/search?type=place&categories=['FOOD_BEVERAGE','ARTS_ENTERTAINMENT']&fields=name,location,about,category_list,cover&center=" + lat + ", " + long +
+    "search?type=place&categories=['FOOD_BEVERAGE','ARTS_ENTERTAINMENT', 'SHOPPING_RETAIL']&fields=name,location,about,category_list,cover&center=" + lat + ", " + long +
      "&distance=1000&access_token=" + accessToken)
      .map(response => response.json())
      .map(data => {
+       console.dir(data);
        let places = [];
        data["data"].forEach(place => {
            places.push(new Place(place["id"], place["name"], place["location"], place["about"]));
@@ -27,8 +28,7 @@ export class PlacesService {
      })
      .catch(this.handleErrors);
    }
-
-     handleErrors(error: Response) {
+     private handleErrors(error: Response) {
        console.log(JSON.stringify(error.json()));
        return Observable.throw(error);
      }
