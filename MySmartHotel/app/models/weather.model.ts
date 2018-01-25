@@ -1,3 +1,3 @@
 export class Weather {
-  constructor (public icon: string, public city : string, public country : string, public degrees : string) {}
+  constructor (public icon: string, public city : string, public country : string, public degrees : string, public date : string) {}
 }

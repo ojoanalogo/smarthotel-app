@@ -1,6 +1,6 @@
 /* Menu weather panel */
 StackLayout.weather {
-  background-image: url("~/assets/bridge.jpeg");
+  background-image: url("~/assets/bridge.jpg");
   background-size: cover;
   position: relative;
   height: auto;
@@ -31,7 +31,7 @@ StackLayout.weather>.bgLayer>.glass>.city {
 StackLayout.weather>.bgLayer>.glass>.med {
   font-size: 48;
   font-weight: 500;
-  margin-top: 12;
+  margin-top: 6;
 }
 
 /* Shortcuts */

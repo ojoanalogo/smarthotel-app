@@ -1,9 +1,9 @@
-<!-- <ContentView height="100%" width="100%">
+<ContentView height="100%" width="100%" *ngIf="mapEnabled">
   <Mapbox
     accessToken="pk.eyJ1IjoibXJhcmMiLCJhIjoiY2pjbnFiZTMxMHhkbjJxcW5kNHVuaGp1YiJ9.RtuRticNcdEckpc6W0-BIQ"
     mapStyle="light"
-    latitude="24.7880443"
-    longitude="-107.3983973"
+    latitude="{{location.latitude}}"
+    longitude="{{location.longitude}}"
     hideCompass="false"
     zoomLevel="13"
     showUserLocation="true"
@@ -13,8 +13,8 @@
     disableTilt="false"
     (mapReady)="onMapReady($event)">
 </Mapbox>
-</ContentView> -->
-<StackLayout class="page-content">
+</ContentView>
+<StackLayout class="page-content" *ngIf="!mapEnabled">
     <Label class="page-icon fa" [text]="'fa-map' | fonticon"></Label>
     <Label text="Mapa turistico"></Label>
     <Label text="Permitenos usar tu ubicación para ofrecerte una experiencia de usuario completa" textWrap="true"></Label>

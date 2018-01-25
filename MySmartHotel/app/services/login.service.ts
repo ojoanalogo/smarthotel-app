@@ -3,6 +3,7 @@ import { Http, Headers, Response } from "@angular/http";
 import { Observable } from "rxjs/Rx";
 import { User } from "../models/user.model";
 import { BackendService } from "../services/backend.service";
+import * as connectivity from "tns-core-modules/connectivity";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 
@@ -12,6 +13,9 @@ export class LoginService {
     constructor(private http: Http) {}
 
     login(user: User) {
+      if (connectivity.getConnectionType() == connectivity.connectionType.none) {
+        return Observable.throw("");
+      }
       let headers = new Headers();
       headers.append("Content-Type", "application/json");
       return this.http.post(

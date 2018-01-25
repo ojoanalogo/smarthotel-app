@@ -9,9 +9,12 @@ import { AppRoutingModule } from "./app.routing";
 
 import { TopbarComponent } from "./components/topbar/topbar";
 import { LoginComponent } from "./pages/login/login.component";
+
 import { MenuComponent } from "./pages/menu/menu.component";
 import { HomeComponent } from "./pages/menu/tabs/home/home.component";
 import { MapComponent } from "./pages/menu/tabs/map/map.component";
+
+import { PlacesComponent } from "./pages/places/places.component";
 
 import { AuthGuard } from "./services/authguard.service";
 import { BackendService } from "./services/backend.service";
@@ -49,7 +52,8 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
       LoginComponent,
       MenuComponent,
       HomeComponent,
-      MapComponent
+      MapComponent,
+      PlacesComponent
     ],
     providers: [
       BackendService,

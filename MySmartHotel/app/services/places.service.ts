@@ -4,13 +4,18 @@ import { Observable } from "rxjs/Rx";
 import { Place } from "../models/place.model";
 import { BackendService } from "../services/backend.service";
 import { PlacesStorage } from "../services/places-storage.service";
+import * as connectivity from "tns-core-modules/connectivity";
 import "rxjs/add/operator/map";
 
 @Injectable()
 export class PlacesService {
+
   constructor(private http: Http) {}
 
   public getPlaces(lat : string, long : string) {
+    if (connectivity.getConnectionType() == connectivity.connectionType.none) {
+      return Observable.throw("");
+    }
     let headers = new Headers();
     let accessToken: string = "1981880128746622|oEaM5iMIKzbe6640AfT9ABjlmkU";
     headers.append("Content-Type", "application/json");
@@ -19,7 +24,6 @@ export class PlacesService {
      "&distance=1000&access_token=" + accessToken)
      .map(response => response.json())
      .map(data => {
-       console.dir(data);
        let places = [];
        data["data"].forEach(place => {
            places.push(new Place(place["id"], place["name"], place["location"], place["about"]));

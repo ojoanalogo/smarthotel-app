@@ -7,6 +7,7 @@ import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { TNSFancyAlert, TNSFancyAlertButton } from 'nativescript-fancyalert';
 import { Validator } from "class-validator";
 import { LoadingIndicator } from "nativescript-loading-indicator";
+import { Color } from "color";
 
 @Component({
   selector: 'login',
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() : void {
     this.page.actionBarHidden = true;
     this.page.backgroundColor = "#03A9F4";
+    this.page.backgroundSpanUnderStatusBar = true;
   }
 
   login() : void {

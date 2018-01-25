@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { PlacesService } from "../../services/places.service";
 import { LocationService } from "../../services/location.service";
-import { Location } from "../../models/location.model";
 import { TNSFancyAlert } from 'nativescript-fancyalert';
+import { SnackBar } from "nativescript-snackbar";
 
 @Component({
   selector: 'MenuComponent',
@@ -11,29 +11,17 @@ import { TNSFancyAlert } from 'nativescript-fancyalert';
 
 export class MenuComponent implements OnInit {
   @ViewChild("tab") tab: ElementRef;
-  private location : Location;
-  constructor(private locationService : LocationService, private placesService : PlacesService) {
-    this.location = new Location();
-  }
-
+  constructor(private locationService : LocationService, private placesService : PlacesService) { }
   ngOnInit() : void {
-    this.locationService.isEnabled().then(
-      (success)=> {
-        this.locationService.getLocation().then((locationObj) => {
-          this.location.latitude = locationObj.latitude;
-          this.location.longitude = locationObj.longitude;
-        }, (error) =>{
-          TNSFancyAlert.showError("Error de ubicación", "Es necesario activar los servicios de ubicación", "Entendido");
-        });
-    }, (notEnabled) => {
-      // Solicitar activación...
-      this.locationService.requestEnable().catch((error) => {
-      TNSFancyAlert.showError("Error de ubicación", "Es necesario activar los servicios de ubicación", "Entendido");
+    this.locationService.setupLocation().subscribe((location) => {
+      let snackBar = new SnackBar();
+      snackBar.simple('Ubicación obtenida');
+    }, (error) => {
+      TNSFancyAlert.showError("Error al activar ubicación", "Es necesario que actives el GPS de tu dispositivo para poder usar la app correctamente", "Entendido");
     });
-  });
   }
-
   public changeTab(i) : void {
     this.tab.nativeElement.selectedIndex = i;
   }
+
 }

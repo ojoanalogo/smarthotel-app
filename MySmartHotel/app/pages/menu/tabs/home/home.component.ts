@@ -6,6 +6,8 @@ import { ScrollView, ScrollEventData } from 'tns-core-modules/ui/scroll-view';
 import { View } from 'tns-core-modules/ui/core/view';
 import { WeatherService } from "../../../../services/weather.service";
 import { Weather } from "../../../../models/weather.model";
+import { LocationService } from "../../../../services/location.service";
+import { Color } from "Color";
 
 @Component({
   selector: 'Home',
@@ -14,12 +16,24 @@ import { Weather } from "../../../../models/weather.model";
 })
 
 export class HomeComponent implements OnInit {
-  city : string;
-  degrees : string;
+   weather : Weather;
 
-  constructor(private page: Page, private router : Router, private fonticon: TNSFontIconService, private weatherService : WeatherService) {}
+  constructor(private page: Page, private router : Router, private fonticon: TNSFontIconService,
+    private weatherService : WeatherService, private locationService : LocationService) {
+      this.weather = new Weather("0", "-", "-", "-", "-");
+    }
   ngOnInit() : void {
-    
+    this.locationService.locationSetChange.subscribe(()=>{
+      let location = this.locationService.getLocation();
+      this.weatherService.getWeather(location.latitude.toString(), location.longitude.toString()).subscribe(
+        (weatherObj) => {
+          this.weather = weatherObj;
+      }, (error) => {
+        this.weather = new Weather("0", "Desconocido", "-", "-", "-");
+      });
+    }, ()=>{
+      this.weather = new Weather("0", "Desconocido", "-", "-", "-");
+    });
   }
   onScroll(event: ScrollEventData, scrollView: ScrollView, topView: View) {
     if (scrollView.verticalOffset < 250) {
