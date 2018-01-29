@@ -139,7 +139,7 @@ StackLayout.weather>.bgLayer>.glass>.med {
 }
 
 .shopping {
-  background-image: url("~/assets/shopping.jpg");
+  background-image: url("~/assets/shopping_mall.jpg");
   background-size: cover;
   position: relative;
   height: auto;

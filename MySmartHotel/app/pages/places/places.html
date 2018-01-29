@@ -1,28 +1,17 @@
-<ScrollView #scrollView (scroll)="onScroll($event, scrollView, topView)">
-  <StackLayout>
-    <StackLayout #topView>
-  <StackLayout>
-    <StackLayout #header class="bg">
-    <StackLayout #bgLayer style="background-color: {{place_type.color}}" class="bgLayer">
+<Gradient direction="to bottom" colors="{{place_type.barColor}}, #616161">
       <Image [src]="place_type.icon" height="80"></Image>
       <Label class="center h1" [text]="place_type.type" textWrap="true"></Label>
       <Label class="center h4" [text]="place_type.desc" textWrap="true"></Label>
-  </StackLayout>
-  </StackLayout>
-  </StackLayout>
-</StackLayout>
-<!-- Contenido -->
-  <ListView class="list-group" height="400" [items]="places">
-    <ng-template let-item="item" let-i="index">
-      <Ripple rippleColor="#EEEEEE" (tap)="showModal(item)">
-        <GridLayout class="list-group-item" rows="*" columns="auto, *">
-          <NSImage class="thumb img-circle" stretch="aspectFill" row="0" placeholder="~/assets/placeholder.png" placeholderStretch="aspectFill"
-             col="0" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference={{item.photoReference}}&key=AIzaSyC3t37wmitrNWtfbKcIyfjRbKN8yp7duLk">
-           </NSImage>
-          <Label row="0" col="1" style="color:#000;" [text]="item.name"></Label>
-        </GridLayout>
-      </Ripple>
-    </ng-template>
-</ListView>
-  </StackLayout>
-</ScrollView>
+      <ListView [items]="places">
+        <ng-template let-item="item" let-i="index">
+          <Ripple rippleColor="#EEEEEE" (tap)="showModal(item)">
+      <GridLayout rows="*" columns="*" style="margin:25 35, 20, 35">
+      <NSImage stretch="aspectFill" placeholder="~/assets/placeholder.png" placeholderStretch="aspectFill"
+         row="0" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference={{item.photoReference}}&key=AIzaSyC3t37wmitrNWtfbKcIyfjRbKN8yp7duLk">
+       </NSImage>
+       <Label row="0" textWrap="false" style="color:#fff; margin-top: 160; background-color: rgba(0,0,0,0.5); margin-bottom: 0;" class="h2" [text]="item.name"></Label>
+      </GridLayout>
+          </Ripple>
+        </ng-template>
+      </ListView>
+</Gradient>

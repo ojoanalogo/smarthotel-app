@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
-import { Page } from "ui/page";
 import { View } from 'tns-core-modules/ui/core/view';
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
@@ -7,6 +6,7 @@ import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { ScrollView, ScrollEventData } from 'tns-core-modules/ui/scroll-view';
 import { Color } from "color";
 import { Place } from "../../models/place.model";
+import { Page } from "ui/page";
 import { PlacesService } from "../../services/places.service";
 import { LoadingIndicator } from "nativescript-loading-indicator";
 import { Image } from "ui/image";
@@ -25,23 +25,23 @@ export class PlacesComponent implements OnInit {
   private places : Array<Place> = [];
   private place_type : PlaceType;
   private places_list = new Array<PlaceType>(
-      { id: "park", type: "Parques", icon:"~/assets/park.png", desc: "Para disfrutar el aire libre", img: "~/assets/park.jpg", color: "#80388E3C" },
-      { id: "restaurant", type: "Restaurantes", icon:"~/assets/restaurant.png", desc: "Tienes hambre? mira los restaurantes cercanos", img: "~/assets/restaurant.jpg", color: "#805D4037" },
-      { id: "museum", type: "Museos", icon:"~/assets/museum.png", desc: "Visita museos cercanos", img: "~/assets/museum.jpg", color: "#80F57C00" },
-      { id: "bar", type: "Bares", icon:"~/assets/bar.png", desc: "Bares cercanos", img: "~/assets/bar.jpg", color: "#80512DA8" },
-      { id: "shopping_mall", type: "Compras", icon:"~/assets/shopping.png", desc: "Compra cosas chilas", img: "~/assets/shopping.jpg", color: "#8000796B" }
+      { id: "park", type: "Parques", icon:"~/assets/park.png", desc: "Para disfrutar el aire libre", img: "~/assets/park.jpg", color: "#80388E3C", barColor: "#388E3C" },
+      { id: "restaurant", type: "Restaurantes", icon:"~/assets/restaurant.png", desc: "Tienes hambre? mira los restaurantes cercanos", img: "~/assets/restaurant.jpg", color: "#805D4037", barColor: "#5D4037" },
+      { id: "museum", type: "Museos", icon:"~/assets/museum.png", desc: "Visita museos cercanos", img: "~/assets/museum.jpg", color: "#80F57C00", barColor: "#F57C00" },
+      { id: "bar", type: "Bares", icon:"~/assets/bar.png", desc: "Bares cercanos", img: "~/assets/bar.jpg", color: "#80512DA8", barColor: "#512DA8" },
+      { id: "shopping_mall", type: "Compras", icon:"~/assets/shopping_mall.png", desc: "Compra cosas chilas", img: "~/assets/shopping_mall.jpg", color: "#8000796B", barColor: "#00796B" }
   );
   private loader: LoadingIndicator;
-  @ViewChild("header") header: ElementRef;
+  // @ViewChild("header") header: ElementRef;
   constructor(private route : ActivatedRoute, private page : Page, private placesService : PlacesService, private vcRef: ViewContainerRef,
     private modalService: ModalDialogService) { }
    ngOnInit() : void {
      this.loader = new LoadingIndicator();
-     this.page.actionBarHidden = true;
      const id = this.route.snapshot.params["id"];
      this.place_type = this.getPlaceType(id);
-     this.header.nativeElement.backgroundImage = this.place_type.img;
+     // this.header.nativeElement.backgroundImage = this.place_type.img;
      this.getPlacesByID(id);
+     this.page.actionBarHidden = true;
   }
 
 private showModal(place : Place) {
@@ -69,18 +69,6 @@ private showModal(place : Place) {
     return this.places_list.filter(item => item.id === id)[0];
   }
 
-  private onScroll(event: ScrollEventData, scrollView: ScrollView, topView: View) {
-    if (scrollView.verticalOffset < 250) {
-        const offset = scrollView.verticalOffset / 2;
-        if (scrollView.ios) {
-            // iOS adjust the position with an animation to create a smother scrolling effect.
-            topView.animate({ translate: { x: 0, y: offset } }).then(() => { }, () => { });
-        } else {
-            // Android, animations are jerky so instead just adjust the position without animation.
-            topView.translateY = Math.floor(offset);
-        }
-    }
-  }
 }
 
 
@@ -91,4 +79,5 @@ private showModal(place : Place) {
   desc: string;
   img: string;
   color: string;
+  barColor: string;
 }
