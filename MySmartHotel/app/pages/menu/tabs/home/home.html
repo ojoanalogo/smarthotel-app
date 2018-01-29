@@ -1,59 +1,59 @@
 <ScrollView #scrollView (scroll)="onScroll($event, scrollView, topView)">
   <StackLayout>
     <StackLayout #topView>
-  <StackLayout class="weather">
-    <StackLayout class="bgLayer">
-    <StackLayout class="glass">
-      <Image src="~/assets/marker.png" height="80"></Image>
-      <Label class="city center" text="{{weather.city}}" textWrap="true"></Label>
-      <Label class="med center" text="{{weather.degrees}}°C"></Label>
+      <StackLayout class="weather">
+        <StackLayout class="bgLayer">
+          <StackLayout class="glass">
+            <Image src="~/assets/marker.png" height="80"></Image>
+            <Label class="city center" text="{{weather.city}}" textWrap="true"></Label>
+            <Label class="med center" text="{{weather.degrees}}°C"></Label>
+          </StackLayout>
+          <GridLayout style="margin: 10;" rows="*, *, *" columns="*, *, *">
+            <Label style="color:#fff;" class="h3" text="Check In" row="0" col="0"></Label>
+            <Label style="color:#fff;" text="Jueves 25 Enero" row="2" col="0"></Label>
+            <Image src="~/assets/calendar.png" height="32" row="0" col="1"></Image>
+            <Label style="color:#fff;" class="h3" text="Check Out" row="0" col="2"></Label>
+            <Label style="color:#fff;" text="Sabado 27 Enero" row="2" col="2"></Label>
+          </GridLayout>
+        </StackLayout>
+      </StackLayout>
     </StackLayout>
-    <GridLayout style="margin: 10;" rows="*, *, *" columns="*, *, *">
-        <Label style="color:#fff;" class="h3" text="Check In" row="0" col="0"></Label>
-        <Label style="color:#fff;" text="Jueves 25 Enero" row="2" col="0"></Label>
-        <Image src="~/assets/calendar.png" height="32" row="0" col="1"></Image>
-        <Label style="color:#fff;" class="h3" text="Check Out" row="0" col="2"></Label>
-        <Label style="color:#fff;" text="Sabado 27 Enero" row="2" col="2"></Label>
-    </GridLayout>
-  </StackLayout>
-  </StackLayout>
-</StackLayout>
-<StackLayout backgroundColor="white">
-  <StackLayout style="background-color:#424242">
-    <Label class="h5" text="¿Qué quieres hacer hoy?" style="color:#fff;" textWrap="true"></Label>
-  </StackLayout>
-  <GridLayout class="shortcuts" rows="*, *, *, *" columns="*, *">
-      <Ripple [nsRouterLink]="['/places/parks']" class="park" rippleColor="#F5F5F5" row="0" col="0">
+    <StackLayout backgroundColor="white">
+      <StackLayout style="background-color:#424242">
+        <Label class="h5" text="¿Qué quieres hacer hoy?" style="color:#fff;" textWrap="true"></Label>
+      </StackLayout>
+      <GridLayout class="shortcuts" rows="*, *, *, *" columns="*, *">
+        <Ripple [nsRouterLink]="['/places/park']" class="park" rippleColor="#F5F5F5" row="0" col="0">
           <StackLayout class="bgLayer">
-          <Image src="~/assets/park.png" height="80"></Image>
-          <Label class="center" text="Parques" textWrap="true"></Label>
-        </StackLayout>
-      </Ripple>
-      <Ripple [nsRouterLink]="['/places/restaurants']" class="restaurant" rippleColor="#F5F5F5" row="0" col="1">
-        <StackLayout class="bgLayer">
-          <Image src="~/assets/restaurant.png" height="80"></Image>
-          <Label class="center" text="Restaurantes" textWrap="true"></Label>
-        </StackLayout>
-      </Ripple>
-      <Ripple [nsRouterLink]="['/places/museums']" class="museum" rippleColor="#F5F5F5" row="1" colSpan="2">
-        <StackLayout class="bgLayer">
-          <Image src="~/assets/museum.png" height="80"></Image>
-          <Label class="center" text="Museos" textWrap="true"></Label>
-        </StackLayout>
-      </Ripple>
-      <Ripple [nsRouterLink]="['/places/bars']" class="bar" rippleColor="#F5F5F5" row="2" col="0">
-        <StackLayout class="bgLayer">
-          <Image src="~/assets/bar.png" height="80"></Image>
-          <Label class="center" text="Bares" textWrap="true"></Label>
-        </StackLayout>
-      </Ripple>
-      <Ripple [nsRouterLink]="['/places/shopping']" class="shopping" rippleColor="#F5F5F5" row="2" col="1">
-        <StackLayout class="bgLayer">
-          <Image src="~/assets/shopping.png" height="80"></Image>
-          <Label class="center" text="Compras" textWrap="true"></Label>
-        </StackLayout>
-      </Ripple>
-  </GridLayout>
-</StackLayout>
-</StackLayout>
+            <Image src="~/assets/park.png" height="80"></Image>
+            <Label class="center" text="Parques" textWrap="true"></Label>
+          </StackLayout>
+        </Ripple>
+        <Ripple [nsRouterLink]="['/places/restaurant']" class="restaurant" rippleColor="#F5F5F5" row="0" col="1">
+          <StackLayout class="bgLayer">
+            <Image src="~/assets/restaurant.png" height="80"></Image>
+            <Label class="center" text="Restaurantes" textWrap="true"></Label>
+          </StackLayout>
+        </Ripple>
+        <Ripple [nsRouterLink]="['/places/museum']" class="museum" rippleColor="#F5F5F5" row="1" colSpan="2">
+          <StackLayout class="bgLayer">
+            <Image src="~/assets/museum.png" height="80"></Image>
+            <Label class="center" text="Museos" textWrap="true"></Label>
+          </StackLayout>
+        </Ripple>
+        <Ripple [nsRouterLink]="['/places/bar']" class="bar" rippleColor="#F5F5F5" row="2" col="0">
+          <StackLayout class="bgLayer">
+            <Image src="~/assets/bar.png" height="80"></Image>
+            <Label class="center" text="Bares" textWrap="true"></Label>
+          </StackLayout>
+        </Ripple>
+        <Ripple [nsRouterLink]="['/places/shopping_mall']" class="shopping" rippleColor="#F5F5F5" row="2" col="1">
+          <StackLayout class="bgLayer">
+            <Image src="~/assets/shopping.png" height="80"></Image>
+            <Label class="center" text="Compras" textWrap="true"></Label>
+          </StackLayout>
+        </Ripple>
+      </GridLayout>
+    </StackLayout>
+  </StackLayout>
 </ScrollView>

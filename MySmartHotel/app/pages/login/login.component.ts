@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { User } from "../../models/user.model";
 import { LoginService } from "../../services/login.service";
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
-import { TNSFancyAlert, TNSFancyAlertButton } from 'nativescript-fancyalert';
+import { TNSFancyAlert } from 'nativescript-fancyalert';
 import { Validator } from "class-validator";
 import { LoadingIndicator } from "nativescript-loading-indicator";
 import { Color } from "color";

@@ -6,18 +6,19 @@ const userToken = "token";
 @Injectable()
 export class BackendService {
 
-  static apiURL = "http://77e4b7d8.ngrok.io";
-  static fbURL = "https://graph.facebook.com/v2.9/";
+  static apiURL = "http://2c79e7d7.ngrok.io";
+  static placesGoogleURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
+  static photosGoogleURL = "https://maps.googleapis.com/maps/api/place/photo?";
   static weatherURL = "https://api.openweathermap.org/data/2.5/";
 
-static isLoggedIn() : boolean {
-  return !!getString("token");
-}
+  static isLoggedIn(): boolean {
+    return !!getString("token");
+  }
 
-  static get token() : string {
+  static get token(): string {
     return getString("token");
   }
-  static set token(userToken : string) {
+  static set token(userToken: string) {
     setString("token", userToken);
   }
 

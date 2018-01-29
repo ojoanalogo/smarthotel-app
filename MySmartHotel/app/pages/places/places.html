@@ -2,71 +2,27 @@
   <StackLayout>
     <StackLayout #topView>
   <StackLayout>
-    <StackLayout #header class="bg" alt="">
-    <StackLayout #bgLayer style="background-color: {{place.color}}" class="bgLayer">
-      <Image [src]="place.icon" height="80"></Image>
-      <Label class="center h1" [text]="place.type" textWrap="true"></Label>
-      <Label class="center h4" [text]="place.desc" textWrap="true"></Label>
+    <StackLayout #header class="bg">
+    <StackLayout #bgLayer style="background-color: {{place_type.color}}" class="bgLayer">
+      <Image [src]="place_type.icon" height="80"></Image>
+      <Label class="center h1" [text]="place_type.type" textWrap="true"></Label>
+      <Label class="center h4" [text]="place_type.desc" textWrap="true"></Label>
   </StackLayout>
   </StackLayout>
   </StackLayout>
 </StackLayout>
 <!-- Contenido -->
-<StackLayout backgroundColor="white">
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-  <Label text="asdasd" textWrap="true"></Label>
-</StackLayout>
+  <ListView class="list-group" height="400" [items]="places">
+    <ng-template let-item="item" let-i="index">
+      <Ripple rippleColor="#EEEEEE" (tap)="showModal(item)">
+        <GridLayout class="list-group-item" rows="*" columns="auto, *">
+          <NSImage class="thumb img-circle" stretch="aspectFill" row="0" placeholder="~/assets/placeholder.png" placeholderStretch="aspectFill"
+             col="0" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference={{item.photoReference}}&key=AIzaSyC3t37wmitrNWtfbKcIyfjRbKN8yp7duLk">
+           </NSImage>
+          <Label row="0" col="1" style="color:#000;" [text]="item.name"></Label>
+        </GridLayout>
+      </Ripple>
+    </ng-template>
+</ListView>
   </StackLayout>
 </ScrollView>

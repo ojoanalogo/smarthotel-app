@@ -1,16 +1,12 @@
 <TopBar></TopBar>
 <TabView class="tab-view" #tab>
-    <StackLayout *tabItem="{title: 'Menu 🎛️'}">
-      <Home></Home>
-    </StackLayout>
-    <StackLayout *tabItem="{title: 'Mapa 🗺️'}">
-      <Map></Map>
-    </StackLayout>
-    <StackLayout *tabItem="{title: 'Habitación 🛌'}">
-      <StackLayout class="m-y-10" orientation="horizontal">
-        <Label class="h1 text-primary" text="Habitación " textWrap="true"></Label>
-        <Label class="text-muted h1" text="101" textWrap="true"></Label>
-      </StackLayout>
-      <StackLayout class="hr-light"></StackLayout>
-    </StackLayout>
+  <StackLayout *tabItem="{title: 'Menu'}">
+    <Home></Home>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Mapa'}">
+    <Map></Map>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Habitación'}">
+    <Room></Room>
+  </StackLayout>
 </TabView>

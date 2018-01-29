@@ -13,8 +13,11 @@ import { LoginComponent } from "./pages/login/login.component";
 import { MenuComponent } from "./pages/menu/menu.component";
 import { HomeComponent } from "./pages/menu/tabs/home/home.component";
 import { MapComponent } from "./pages/menu/tabs/map/map.component";
+import { RoomComponent } from "./pages/menu/tabs/room/room.component";
 
 import { PlacesComponent } from "./pages/places/places.component";
+
+import { InfoModalComponent } from "./info-modal/info-modal";
 
 import { AuthGuard } from "./services/authguard.service";
 import { BackendService } from "./services/backend.service";
@@ -22,7 +25,6 @@ import { LoginService } from "./services/login.service";
 import { PlacesService } from "./services/places.service";
 import { LocationService } from "./services/location.service";
 import { WeatherService } from "./services/weather.service";
-import { PlacesStorage } from "./services/places-storage.service";
 
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { registerElement } from "nativescript-angular";
@@ -53,14 +55,16 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
       MenuComponent,
       HomeComponent,
       MapComponent,
-      PlacesComponent
+      RoomComponent,
+      PlacesComponent,
+      InfoModalComponent
     ],
+    entryComponents: [InfoModalComponent],
     providers: [
       BackendService,
       AuthGuard,
       LoginService,
       PlacesService,
-      PlacesStorage,
       LocationService,
       WeatherService
     ],
@@ -69,4 +73,7 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
     ]
 })
 
-export class AppModule { }
+export class AppModule {
+  constructor() {
+  }
+}
