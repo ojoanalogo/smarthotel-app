@@ -5,6 +5,7 @@ import { forkJoin } from "rxjs/observable/forkJoin";
 import { Place, PlaceType } from "../models/place.model";
 import { Location } from "../models/location.model";
 import { BackendService } from "../services/backend.service";
+import { LocationService } from "../services/location.service";
 import { SecureStorage } from "nativescript-secure-storage";
 import * as connectivity from "tns-core-modules/connectivity";
 
@@ -14,7 +15,7 @@ import "rxjs/add/operator/do";
 @Injectable()
 export class PlacesService {
   private secureStorage : SecureStorage;
-  constructor(private http: Http) {
+  constructor(private http: Http, private locationService : LocationService) {
     this.secureStorage = new SecureStorage();
    }
 
@@ -36,9 +37,8 @@ export class PlacesService {
     let shopping = this.http.get(url + PlaceType.SHOPPING_MALL).map(res => res.json());
     let bars = this.http.get(url + PlaceType.BAR).map(res => res.json());
     let night_clubs = this.http.get(url + PlaceType.NIGHT_CLUB).map(res => res.json());
-    let points_of_interest = this.http.get(url + PlaceType.POINT_OF_INTEREST).map(res => res.json());
     return Observable.forkJoin([parks, restaurants, museums, art_galleries, cafes,
-      casinos, zoo, shopping, bars, night_clubs, points_of_interest]).map((data: any[]) => {
+      casinos, zoo, shopping, bars, night_clubs]).map((data: any[]) => {
         let placeType;
         let i = 0;
         data.forEach(dataTypes => {
@@ -58,10 +58,20 @@ export class PlacesService {
       });
   }
 
-  public placesExist(): boolean {
-    let val = this.secureStorage.getSync({key: "placesData"});
-    return (val==null) ? false : true;
+  public placesExist(): Promise<any> {
+    return this.secureStorage.get({key: "placesData"});
+    // let val = this.secureStorage.getSync({key: "placesData"});
+    // return (val==null) ? false : true;
   }
+
+  public getDistancePlace(placeLocation : Location) : string {
+     let distance = this.locationService.getDistance(this.locationService.getLocation(), placeLocation);
+     if(distance >= 1) {
+       return (distance).toFixed(1) + " kilometros";
+     }
+     return (distance*1000).toFixed(0) + " metros";
+   }
+
 
   private getPlaceType(i): PlaceType {
     let place: PlaceType;
@@ -76,7 +86,6 @@ export class PlacesService {
       case 7: return PlaceType.SHOPPING_MALL;
       case 8: return PlaceType.BAR;
       case 9: return PlaceType.NIGHT_CLUB;
-      case 10: return PlaceType.POINT_OF_INTEREST;
     }
   }
   public storePlaces(places: Array<Place>) {

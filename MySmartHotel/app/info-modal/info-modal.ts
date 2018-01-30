@@ -7,6 +7,9 @@ import { openUrl } from "tns-core-modules/utils/utils";
 import { Place } from "../models/place.model";
 import { Location } from "../models/location.model"
 import { LocationService } from "../services/location.service";
+import { Directions } from "nativescript-directions";
+import { TNSFancyAlert } from 'nativescript-fancyalert';
+import { SnackBar } from "nativescript-snackbar";
 
 const pageCommon = require("tns-core-modules/ui/page/page-common").PageBase;
 
@@ -19,17 +22,18 @@ const pageCommon = require("tns-core-modules/ui/page/page-common").PageBase;
   ]
 })
 export class InfoModalComponent {
-  placeInfo : Place;
+  placeInfo: Place;
+  directions: Directions;
+  snackBar: SnackBar;
   constructor(private params: ModalDialogParams,
-              private page: Page, private locationServices : LocationService) {
+    private page: Page, private locationServices: LocationService) {
+    this.directions = new Directions();
     this.placeInfo = params.context;
     this.page.on("unloaded", () => {
       this.params.closeCallback();
     });
-    let location : Location = this.locationServices.getLocation();
-    console.log("DISTANCIA KM:" + this.getDistanceFromLatLonInKm(location.latitude,
-       location.longitude, this.placeInfo.location["lat"], this.placeInfo.location["lng"]));
     this.page.backgroundColor = new Color(50, 0, 0, 0);
+    this.snackBar = new SnackBar();
     // if (page.ios) {
     //
     //   // iOS by default won't let us have a transparent background on a modal
@@ -65,24 +69,25 @@ export class InfoModalComponent {
     //   };
     // }
   }
-
- private getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-  var R = 6371; // Radius of the earth in km
-  var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
-  var dLon = this.deg2rad(lon2-lon1);
-  var a =
-    Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
-    Math.sin(dLon/2) * Math.sin(dLon/2)
-    ;
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  var d = R * c; // Distance in km
-  return d;
-}
-private deg2rad(deg) {
-  return deg * (Math.PI/180);
-}
-private close() {
+  private openNavgps() {
+    this.directions.available().then((available) => {
+      if(available) {
+        this.directions.navigate({
+          to: {
+            lat:  this.placeInfo.location["lat"],
+            lng: this.placeInfo.location["lng"]
+          }
+        }).then(()=> {
+          this.snackBar.simple("Abriendo mapas");
+        }, error => {
+          this.snackBar.simple("Error al abrir mapas");
+        })
+      } else {
+        TNSFancyAlert.showError("Google Maps", "Al parecer no tienes instalado GoogleMaps para la navegación", "Entendido");
+      }
+    })
+  }
+  private close() {
     this.params.closeCallback();
   }
 }

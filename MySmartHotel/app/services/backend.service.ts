@@ -6,7 +6,7 @@ const userToken = "token";
 @Injectable()
 export class BackendService {
 
-  static apiURL = "http://2c79e7d7.ngrok.io";
+  static apiURL = "http://df455822.ngrok.io";
   static placesGoogleURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
   static photosGoogleURL = "https://maps.googleapis.com/maps/api/place/photo?";
   static weatherURL = "https://api.openweathermap.org/data/2.5/";

@@ -14,7 +14,7 @@
       disableTilt="false"
       (mapReady)="onMapReady($event)">
   </Mapbox>
-  <FAB (tap)="goCenter()" row="1" icon="~/assets/cardinal.png" rippleColor="#f1f1f1" class="fab"></FAB>
+  <FAB (tap)="goCenter()" row="1" icon="res://cardinal" rippleColor="#f1f1f1" class="fab"></FAB>
   </GridLayout>
 </ContentView>
 <StackLayout class="page-content" *ngIf="!mapEnabled">

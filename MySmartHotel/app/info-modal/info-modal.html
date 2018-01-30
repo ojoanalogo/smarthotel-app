@@ -1,13 +1,12 @@
 <ScrollView>
   <StackLayout class="modal-wrapper" verticalAlignment="center">
-    <NSImage stretch="aspectFill" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference={{placeInfo.photoReference}}&key=AIzaSyC3t37wmitrNWtfbKcIyfjRbKN8yp7duLk">
-     </NSImage>
     <StackLayout class="p-10" style="padding-top: 5">
-      <GridLayout rows="*" columns="18, *">
-        <Image row="0" col="0" height="16" [src]="'~/assets/' + placeInfo.placeType + '.png'"></Image>
-        <Label row="0" col="1" [text]="placeInfo.name"></Label>
+      <GridLayout rows="*" columns="36, *">
+        <Image row="0" col="0" height="32" [src]="'~/assets/' + placeInfo.placeType + '.png'"></Image>
+        <Label row="0" col="1" class="place-name" [text]="placeInfo.name"></Label>
       </GridLayout>
     </StackLayout>
-    <Button class="btn btn-primary btn-active btn-rounded-sm" style="margin-bottom: 0" text="Cerrar" (tap)="close()"></Button>
+    <Button class="btn btn-primary btn-active btn-rounded-lg" text="Ver direcciones" (tap)="openNavgps()"></Button>
+    <Button class="btn btn-primary btn-active btn-rounded-lg" style="margin-bottom: 0" text="Cerrar" (tap)="close()"></Button>
   </StackLayout>
 </ScrollView>

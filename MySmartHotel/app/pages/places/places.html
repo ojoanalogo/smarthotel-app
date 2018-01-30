@@ -5,11 +5,21 @@
       <ListView [items]="places">
         <ng-template let-item="item" let-i="index">
           <Ripple rippleColor="#EEEEEE" (tap)="showModal(item)">
-      <GridLayout rows="*" columns="*" style="margin:25 35, 20, 35">
+      <GridLayout rows="*, *" columns="*" style="margin:25, 30, 20, 30">
       <NSImage stretch="aspectFill" placeholder="~/assets/placeholder.png" placeholderStretch="aspectFill"
          row="0" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference={{item.photoReference}}&key=AIzaSyC3t37wmitrNWtfbKcIyfjRbKN8yp7duLk">
        </NSImage>
-       <Label row="0" textWrap="false" style="color:#fff; margin-top: 160; background-color: rgba(0,0,0,0.5); margin-bottom: 0;" class="h2" [text]="item.name"></Label>
+       <StackLayout style="margin-top: 60; margin-bottom: 60; background-color:rgba(0,0,0,0.5);" row="0">
+         <Label class="center" textWrap="false" style="color:#fff; font-size: 24; text-align: center;" class="h2" [text]="item.name"></Label>
+         <Image class="center" [src]="place_type.icon" height="14"></Image>
+         <Label style="text-transform: uppercase; color:#fff; font-size: 9; text-align: center; margin-bottom: 5;" [text]="place_type.type" textWrap="true"></Label>
+       </StackLayout>
+       <StackLayout style="background-color:#fff;" row="1">
+         <GridLayout rows="*" columns="24, *">
+           <Image row="0" col="0" src="~/assets/place.png" height="16"></Image>
+           <Label row="0" col="1" style="text-transform: uppercase; color:#757575; margin-top: 5; margin-bottom: 5;" [text]="getDistance(item)" textWrap="true"></Label>
+         </GridLayout>
+       </StackLayout>
       </GridLayout>
           </Ripple>
         </ng-template>
