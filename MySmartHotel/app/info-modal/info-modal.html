@@ -1,0 +1,12 @@
+<ScrollView>
+  <StackLayout class="modal-wrapper" verticalAlignment="center">
+    <StackLayout class="p-10" style="padding-top: 5">
+      <GridLayout rows="*" columns="36, *">
+        <Image row="0" col="0" height="32" [src]="'~/assets/' + placeInfo.placeType + '.png'"></Image>
+        <Label row="0" col="1" class="place-name" [text]="placeInfo.name"></Label>
+      </GridLayout>
+    </StackLayout>
+    <Button class="btn btn-primary btn-active btn-rounded-lg" text="Ver direcciones" (tap)="openNavgps()"></Button>
+    <Button class="btn btn-primary btn-active btn-rounded-lg" style="margin-bottom: 0" text="Cerrar" (tap)="close()"></Button>
+  </StackLayout>
+</ScrollView>

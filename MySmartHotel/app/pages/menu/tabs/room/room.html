@@ -1,0 +1,4 @@
+<StackLayout>
+    <Image height="80" [src]="lightsState ? '~/assets/room/light-on.png' : '~/assets/room/light-off.png'"></Image>
+    <Button (tap)="toggleCheck()" text="Toggle"></Button>
+</StackLayout>

@@ -1,0 +1,163 @@
+/* Menu weather panel */
+
+StackLayout.weather {
+  background-image: url("~/assets/bridge.jpg");
+  background-size: cover;
+  position: relative;
+  height: auto;
+  color: #fff;
+}
+
+StackLayout.weather>.bgLayer {
+  background-color: rgba(0, 150, 136, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+StackLayout.glass Label {
+  color: #fff;
+}
+
+StackLayout.weather>.bgLayer>.glass {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 20 0;
+  width: 55%;
+}
+
+StackLayout.weather>.bgLayer>.glass>.city {
+  font-size: 18;
+  font-weight: 400;
+  margin-top: 3;
+}
+
+StackLayout.weather>.bgLayer>.glass>.med {
+  font-size: 48;
+  font-weight: 500;
+  margin-top: 6;
+}
+
+/* Shortcuts */
+
+.restaurant {
+  background-image: url("~/assets/restaurant.jpg");
+  background-size: cover;
+  position: relative;
+  height: auto;
+}
+
+.restaurant>.bgLayer {
+  background-color: rgba(93, 64, 55, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+}
+
+.restaurant>.bgLayer Label {
+  color: #fff;
+  font-size: 24;
+  font-weight: 500;
+  padding-bottom: 15;
+}
+
+.park {
+  background-image: url("~/assets/park.jpg");
+  background-size: cover;
+  position: relative;
+  height: auto;
+}
+
+.park>.bgLayer {
+  background-color: rgba(56, 142, 60, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+}
+
+.park>.bgLayer Label {
+  color: #fff;
+  font-size: 24;
+  font-weight: 500;
+  padding-bottom: 15;
+}
+
+.museum {
+  background-image: url("~/assets/museum.jpg");
+  background-size: cover;
+  position: relative;
+  height: auto;
+}
+
+.museum>.bgLayer {
+  background-color: rgba(245, 124, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+}
+
+.museum>.bgLayer Label {
+  color: #fff;
+  font-size: 24;
+  font-weight: 500;
+  padding-bottom: 15;
+}
+
+.bar {
+  background-image: url("~/assets/bar.jpg");
+  background-size: cover;
+  position: relative;
+  height: auto;
+}
+
+.bar>.bgLayer {
+  background-color: rgba(48, 63, 159, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+}
+
+.bar>.bgLayer Label {
+  color: #fff;
+  font-size: 24;
+  font-weight: 500;
+  padding-bottom: 15;
+}
+
+.shopping {
+  background-image: url("~/assets/shopping_mall.jpg");
+  background-size: cover;
+  position: relative;
+  height: auto;
+}
+
+.shopping>.bgLayer {
+  background-color: rgba(0, 151, 167, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+}
+
+.shopping>.bgLayer Label {
+  color: #fff;
+  font-size: 24;
+  font-weight: 500;
+  padding-bottom: 15;
+}
