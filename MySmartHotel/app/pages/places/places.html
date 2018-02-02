@@ -7,7 +7,7 @@
           <Ripple rippleColor="#EEEEEE" (tap)="showModal(item)">
       <GridLayout rows="*, *" columns="*" style="margin:25, 30, 20, 30">
       <NSImage stretch="aspectFill" placeholder="~/assets/placeholder.png" placeholderStretch="aspectFill"
-         row="0" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference={{item.photoReference}}&key=AIzaSyC3t37wmitrNWtfbKcIyfjRbKN8yp7duLk">
+         row="0" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=380&photoreference={{item.photoReference}}&key=AIzaSyC3t37wmitrNWtfbKcIyfjRbKN8yp7duLk">
        </NSImage>
        <StackLayout style="margin-top: 60; margin-bottom: 60; background-color:rgba(0,0,0,0.5);" row="0">
          <Label class="center" textWrap="false" style="color:#fff; font-size: 24; text-align: center;" class="h2" [text]="item.name"></Label>

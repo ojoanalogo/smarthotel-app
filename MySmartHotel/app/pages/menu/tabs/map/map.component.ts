@@ -57,11 +57,11 @@ export class MapComponent implements OnInit {
   private allowLocation(): void {
     this.loader.show({ message: "Obteniendo ubicación" });
     this.locationService.setupLocation().subscribe((location) => {
-      this.onMapReady(this.mapObject);
       this.location = this.locationService.getLocation();
       this.mapEnabled = true;
       this.loader.hide();
       this.snackBar.simple('Ubicación obtenida');
+      this.onMapReady(this.mapObject);
     }, (error) => {
       this.loader.hide();
       this.snackBar.simple('No se pudo obtener la ubicación');
@@ -128,7 +128,7 @@ export class MapComponent implements OnInit {
         lat: placeLocation.latitude,
         lng: placeLocation.longitude,
         title: place.name,
-        subtitle: placeType + "\n📍 Distancia: " + this.placesService.getDistancePlace(placeLocation) + "\nClic para ver más opciones",
+        subtitle: placeType + "\n📍 Distancia: " + this.placesService.getDistancePlace(placeLocation) + "\nPresiona para ver más opciones",
         iconPath: this.getIcon(place.placeType),
         onCalloutTap: () => {
           this.showModal(place);

@@ -27,6 +27,7 @@ import { LocationService } from "./services/location.service";
 import { WeatherService } from "./services/weather.service";
 
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
+import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
 import { registerElement } from "nativescript-angular";
 
 registerElement("Gradient", () => require("nativescript-gradient").Gradient);
@@ -44,6 +45,7 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
       AppRoutingModule,
       NativeScriptFormsModule,
       NativeScriptHttpModule,
+      TNSCheckBoxModule,
       TNSFontIconModule.forRoot({
     		'fa': './assets/font-awesome.css'
     	})

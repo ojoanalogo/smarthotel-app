@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
 import { LoadingIndicator } from "nativescript-loading-indicator";
 
@@ -9,9 +9,10 @@ import { LoadingIndicator } from "nativescript-loading-indicator";
 })
 
 export class RoomComponent implements OnInit {
-
-  constructor() {
-
+  lightsState : boolean = false;
+  constructor() {}
+  public toggleCheck() {
+    this.lightsState = !this.lightsState;
   }
 
   ngOnInit(): void {
