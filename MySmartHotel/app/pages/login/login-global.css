@@ -11,10 +11,13 @@ StackLayout.wrap Label {
 StackLayout Label {
   color: #fff;
 }
-GridLayout.loginGrid {
+StackLayout.loginGrid {
   margin-left: 55;
   margin-right: 55;
   padding-top: 20;
+}
+StackLayout.loginGrid Label {
+  color: #000;
 }
 GridLayout.btnGrid {
   margin-top: 30;
@@ -40,13 +43,8 @@ Label {
   text-align: center;
 }
 TextField {
-  color: #fff;
+  color: #000;
 }
 Button {
-  background-color: #fff;
-  color: #000;
   border-radius: 15;
-}
-Button:active {
-  background-color: #EEEEEE;
 }

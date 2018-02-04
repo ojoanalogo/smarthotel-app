@@ -30,6 +30,7 @@
     "nativescript-loading-indicator": "^2.4.0",
     "nativescript-mapbox": "^3.3.0",
     "nativescript-ngx-fonticon": "^4.0.0",
+    "nativescript-plugin-firebase": "^5.1.6",
     "nativescript-ripple": "^2.0.0",
     "nativescript-secure-storage": "^2.2.1",
     "nativescript-sidedrawer": "^1.0.6",

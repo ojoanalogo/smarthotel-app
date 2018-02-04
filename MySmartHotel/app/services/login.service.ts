@@ -4,13 +4,14 @@ import { Observable } from "rxjs/Rx";
 import { User } from "../models/user.model";
 import { BackendService } from "../services/backend.service";
 import * as connectivity from "tns-core-modules/connectivity";
+import { Router } from "@angular/router";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 
 @Injectable()
 export class LoginService {
 
-    constructor(private http: Http) {}
+    constructor(private http: Http, private router : Router) {}
 
     login(user: User) {
       if (connectivity.getConnectionType() == connectivity.connectionType.none) {
@@ -28,12 +29,15 @@ export class LoginService {
       )
       .map(response => response.json())
       .do(data => {
-         if (data.code === 1 && data.response.token) {
-           BackendService.token = data.response.token;
-           return data;
-         }
+        return data;
       })
       .catch(this.handleErrors);
+    }
+
+    logout() {
+      BackendService.token = "";
+      BackendService.userData = new User("", "", "", "", "", "", 0);
+      this.router.navigate(["/login"]);
     }
 
       handleErrors(error: Response) {

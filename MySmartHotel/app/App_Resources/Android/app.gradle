@@ -1,4 +1,3 @@
-
 android {
 buildToolsVersion "27.0.1"
   defaultConfig {
@@ -8,14 +7,6 @@ buildToolsVersion "27.0.1"
   aaptOptions {
     additionalParameters "--no-version-vectors"
   }
-  splits {
-   abi {
-     enable true //enables the ABIs split mechanism
-     reset() //reset the list of ABIs to be included to an empty string
-     include 'arm64-v8a', 'armeabi-v7a', 'x86'
-     universalApk true
-   }
- }
 }
 repositories {
     mavenCentral()
@@ -32,3 +23,4 @@ allprojects {
             }
         }
     }
+project.ext { googlePlayServicesVersion = "11.8.0" }

@@ -1,22 +1,26 @@
 <Gradient direction="to bottom right" colors="#4DB6AC, #009688, #00796B, #004D40">
-<ScrollView orientation="vertical">
-<StackLayout class="wrap">
-  <StackLayout style="padding-bottom: 40;"></StackLayout>
-<Image src="~/assets/logo.png" height="150" stretch="aspectFit"></Image>
-<Label class="title center" text="MySmartHotel"></Label>
-<Label class="center" text="Introduce tus credenciales de huesped para poder usar la app" textWrap="true"></Label>
-<!-- Grid layout para el acceso -->
-<GridLayout class="loginGrid" rows="*, *, *, *" columns="44, *">
-  <Label row="0" col="1" text="Correo"></Label>
-  <Label row="1" col="0" class="fa" style="color: #fff; font-size: 18;" [text]="'fa-at' | fonticon"></Label>
-  <TextField row="1" col="1" hint="Tu correo" text="" keyboardType="email" [(ngModel)]="this.user.email"></TextField>
-  <Label row="2" col="1" text="Clave"></Label>
-  <Label row="3" col="0" class="fa" style="color: #fff; font-size: 24;" [text]="'fa-lock' | fonticon"></Label>
-  <TextField row="3" col="1" hint="•••" text="" secure="true" [(ngModel)]="this.user.password"></TextField>
-</GridLayout>
-<GridLayout class="btnGrid" rows="*,*" columns="*, 220, *">
-  <Button (tap)="login()" row="0" col="1" text="Acceder"></Button>
-</GridLayout>
-</StackLayout>
-</ScrollView>
+  <ScrollView orientation="vertical">
+    <StackLayout class="wrap">
+      <StackLayout style="padding-bottom: 40;"></StackLayout>
+      <Image src="~/assets/logo.png" height="150" stretch="aspectFit"></Image>
+      <Label class="title center" text="MySmartHotel"></Label>
+      <Label class="center" text="Introduce tus credenciales de huesped para poder usar la app" textWrap="true"></Label>
+      <!-- layout para el acceso -->
+      <StackLayout margin="30" verticalAlignment="center">
+        <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
+          <StackLayout class="input-field">
+            <Label text="{{'fa-at' | fonticon}} Correo" style="font-size: 18;" class="fa label font-weight-bold m-b-5"></Label>
+            <TextField keyboardtype="email" class="input" hint="ejemplo@dominio.com" [(ngModel)]="user.email"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+          </StackLayout>
+          <StackLayout class="input-field">
+            <Label text="{{'fa-lock' | fonticon}} Clave" style="font-size: 18;" class="fa label font-weight-bold m-b-5"></Label>
+            <TextField secure="true" class="input" hint="Tu clave de huesped" [(ngModel)]="user.password"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+          </StackLayout>
+          <Button (tap)="login()" class="fa btn btn-primary" text="{{'fa-sign-in' | fonticon}} Acceder"></Button>
+        </StackLayout>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
 </Gradient>
