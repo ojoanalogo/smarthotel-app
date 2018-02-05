@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       if (res.code === 1 && res.response.token) {
         let dRes = res.response.userData[0];
         BackendService.userData = new User(dRes.huesped_correo, "", dRes.huesped_nombre,
-         dRes.huesped_apellido, dRes.reservacion_desde, dRes.reservacion_hasta, dRes.habitación_numero);
+         dRes.huesped_apellido, dRes.reservacion_desde, dRes.reservacion_hasta, dRes.habitacion_numero);
         BackendService.token = res.response.token;
         this.router.navigate(["/menu"]);
       }

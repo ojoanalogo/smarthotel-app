@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
 import { LoadingIndicator } from "nativescript-loading-indicator";
-
+import { BackendService } from "../../../../services/backend.service";
 @Component({
   selector: 'Room',
   templateUrl: 'pages/menu/tabs/room/room.html',
@@ -9,14 +9,13 @@ import { LoadingIndicator } from "nativescript-loading-indicator";
 })
 
 export class RoomComponent implements OnInit {
-  lightsState : boolean = false;
+  private lightsState : boolean = false;
+  private habitacion : number;
   constructor() {}
   public toggleCheck() {
     this.lightsState = !this.lightsState;
   }
-
   ngOnInit(): void {
-
+    this.habitacion = BackendService.userData.room;
   }
-
 }

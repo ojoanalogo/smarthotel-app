@@ -1,4 +1,5 @@
+<Label class="h1" text="Habitación {{this.habitacion}}" textWrap="true"></Label>
 <StackLayout>
     <Image height="80" [src]="lightsState ? '~/assets/room/light-on.png' : '~/assets/room/light-off.png'"></Image>
-    <Button (tap)="toggleCheck()" text="Toggle"></Button>
+    <Button class="btn btn-primary btn-rounded" (tap)="toggleCheck()" text="Toggle"></Button>
 </StackLayout>
