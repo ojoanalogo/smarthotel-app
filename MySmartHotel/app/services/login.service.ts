@@ -41,7 +41,6 @@ export class LoginService {
     }
 
       handleErrors(error: Response) {
-        console.dir(JSON.stringify(error.json()));
-        return Observable.throw(error);
+        return Observable.throw(error.json());
       }
 }

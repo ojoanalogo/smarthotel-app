@@ -21,8 +21,29 @@ export class RoomService {
       BackendService.apiURL + "/api/hotel/solicitarLimpieza",
       JSON.stringify({
         token: BackendService.token,
-        cuarto: user.room,
+        correo: user.email,
+        habitacion: user.room,
         notas: notes
+      }),
+      { headers: headers }
+    )
+    .map(response => response.json())
+    .do(data => {
+      return data;
+    })
+    .catch(this.handleErrors);
+  }
+
+  getRoomData(room : number) {
+     if (connectivity.getConnectionType() == connectivity.connectionType.none) {
+      return Observable.throw("");
+    }
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http.post(
+      BackendService.apiURL + "/api/mobile/iot/" + room + "/obtenerDatos",
+      JSON.stringify({
+        token: BackendService.token
       }),
       { headers: headers }
     )
