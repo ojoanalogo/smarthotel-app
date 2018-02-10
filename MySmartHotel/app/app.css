@@ -2,6 +2,7 @@
 @import '/assets/custom.css';
 ActionBar {
   color: #fff;
+  background-color: #009688;
 }
 .center {
   margin-left: auto;
@@ -13,4 +14,9 @@ ActionBar {
 }
 Label {
   color: #000;
+}
+.btn-secondary {
+  background-color: #43A047;
+  color: #fff;
+  border-color: #43A047;
 }

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "663464656840",
+    "firebase_url": "https://mysmarthotel-180018.firebaseio.com",
+    "project_id": "mysmarthotel-180018",
+    "storage_bucket": "mysmarthotel-180018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663464656840:android:ec19d6fbd4bbbfa9",
+        "android_client_info": {
+          "package_name": "xyz.mrarc.smarthotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663464656840-pu2k27dtv5l5689lua95972qj9ndolam.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8KAOmiRTcSyhNxdyg6Yl1rJTcCife3s4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

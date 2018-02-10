@@ -11,15 +11,6 @@ StackLayout.wrap Label {
 StackLayout Label {
   color: #fff;
 }
-GridLayout.loginGrid {
-  margin-left: 55;
-  margin-right: 55;
-  padding-top: 20;
-}
-GridLayout.btnGrid {
-  margin-top: 30;
-  padding-bottom: 10;
-}
 .title {
   font-size: 28;
   color: #fff;
@@ -40,13 +31,5 @@ Label {
   text-align: center;
 }
 TextField {
-  color: #fff;
-}
-Button {
-  background-color: #fff;
   color: #000;
-  border-radius: 15;
-}
-Button:active {
-  background-color: #EEEEEE;
 }

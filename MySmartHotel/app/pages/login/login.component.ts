@@ -7,6 +7,7 @@ import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { TNSFancyAlert } from 'nativescript-fancyalert';
 import { Validator } from "class-validator";
 import { LoadingIndicator } from "nativescript-loading-indicator";
+import { BackendService } from "../../services/backend.service";
 import { Color } from "color";
 
 @Component({
@@ -20,9 +21,7 @@ export class LoginComponent implements OnInit {
   registering = false;
   loader: LoadingIndicator;
   constructor(private page : Page, private router : Router, private icon : TNSFontIconService, private loginService : LoginService) {
-    this.user = new User();
-    this.user.email = "arc980103@gmail.com";
-    this.user.password = "comodorops3";
+    this.user = new User("","","","","","",0);
     this.loader = new LoadingIndicator();
    }
   ngOnInit() : void {
@@ -34,12 +33,22 @@ export class LoginComponent implements OnInit {
   login() : void {
     if(this.validate(this.user)) {
       this.loader.show({message:"Comprobando datos"});
-    this.loginService.login(this.user).subscribe(()=>{
+    this.loginService.login(this.user).subscribe((res)=>{
       this.loader.hide();
-      this.router.navigate(["/menu"])
+      if (res.code === 1 && res.response.token) {
+        let dRes = res.response.userData[0];
+        BackendService.userData = new User(dRes.huesped_correo, "", dRes.huesped_nombre,
+         dRes.huesped_apellido, dRes.reservacion_desde, dRes.reservacion_hasta, dRes.habitacion_numero);
+        BackendService.token = res.response.token;
+        this.router.navigate(["/menu"]);
+      }
+      if (res.code === 2) {
+        TNSFancyAlert.showWarning("No estás hospedado", "Ve a recepción si crees que es un error", "Entendido");
+      }
     },
     (res) => {
       this.loader.hide();
+      console.dir(res);
       TNSFancyAlert.showError("Datos incorrectos", "Correo/clave no validos", "Entendido");
     }
    );

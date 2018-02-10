@@ -10,10 +10,10 @@
           </StackLayout>
           <GridLayout style="margin: 10;" rows="*, *, *" columns="*, *, *">
             <Label style="color:#fff;" class="h3" text="Check In" row="0" col="0"></Label>
-            <Label style="color:#fff;" text="Jueves 25 Enero" row="2" col="0"></Label>
+            <Label style="color:#fff;" [text]="this.arrival.getWeekDay() + ' ' + this.arrival.getDay() + ' ' + this.arrival.getMonth()" row="2" col="0"></Label>
             <Image src="~/assets/calendar.png" height="32" row="0" col="1"></Image>
             <Label style="color:#fff;" class="h3" text="Check Out" row="0" col="2"></Label>
-            <Label style="color:#fff;" text="Sabado 27 Enero" row="2" col="2"></Label>
+            <Label style="color:#fff;" [text]="this.departure.getWeekDay() + ' ' + this.departure.getDay() + ' ' + this.departure.getMonth()" row="2" col="2"></Label>
           </GridLayout>
         </StackLayout>
       </StackLayout>
@@ -54,6 +54,9 @@
           </StackLayout>
         </Ripple>
       </GridLayout>
+      <StackLayout>
+        <Label text="Eventos" class="h3" textWrap="true"></Label>
+      </StackLayout>
     </StackLayout>
   </StackLayout>
 </ScrollView>
