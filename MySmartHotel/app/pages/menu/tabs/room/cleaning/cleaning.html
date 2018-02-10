@@ -3,6 +3,12 @@
 </ActionBar>
 <ScrollView>
     <StackLayout>
-      <Label text="holi" textWrap="true"></Label>
+      <Image class="center" src="~/assets/cleaning.png" height="80"></Image>
+      <Label class="m-l-20 h1 center" text="Solicitar limpieza" textWrap="true"></Label>
+      <Label class="text-muted center" text="Solicita limpieza a tu habitación mientrás estás disfrutando fuera del hotel, nosotros nos encargamos" textWrap="true"></Label>
+      <StackLayout class="form">
+      <TextView height="120" class="input input-border m-l-10 m-r-10 m-t-10 " hint="Notas" [(ngModel)]="notes" editable="true"></TextView>
+    </StackLayout>
+          <Button class="btn btn-primary m-30" text="Solicitar limpieza" (tap)="requestCleaning()"></Button>
     </StackLayout>
 </ScrollView>

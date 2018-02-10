@@ -1,18 +1,18 @@
-StackLayout.header {
+ScrollView {
   background-image: url("~/assets/room.jpg");
   background-size: cover;
   position: relative;
   height: auto;
   color: #fff;
 }
-StackLayout.header Label {
+StackLayout.glass Label {
   color: #fff;
 }
-StackLayout.header>.glass {
-  background-color: rgba(0, 0, 0, 0.4);
+StackLayout.glass {
+  background-color: rgba(0, 0, 0, 0.6);
   display: block;
 }
 StackLayout.thermostat {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.2);
   display: block;
 }

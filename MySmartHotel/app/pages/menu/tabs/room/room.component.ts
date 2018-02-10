@@ -13,12 +13,14 @@ import * as dialogs from "ui/dialogs";
 
 export class RoomComponent implements OnInit {
   private lightsState : boolean = false;
+  private thermostat : number;
   private room : number;
   constructor(private router: Router) {}
-  public toggleCheck() {
-    this.lightsState = !this.lightsState;
-  }
   ngOnInit(): void {
     this.room = BackendService.userData.room;
+    this.thermostat = 23;
+  }
+  public lights() {
+    this.lightsState = !this.lightsState;
   }
 }
