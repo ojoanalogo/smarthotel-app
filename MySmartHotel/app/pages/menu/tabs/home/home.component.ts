@@ -46,10 +46,9 @@ export class HomeComponent implements OnInit {
     this.user = BackendService.userData;
     let dateArrival = new Date(this.user.arrival);
     let dateDeparture = new Date(this.user.departure);
-    this.arrival = new DateReservation(dateArrival.getMonth(), dateArrival.getDate(), dateArrival.getDay());
-    this.departure = new DateReservation(dateDeparture.getMonth(), dateDeparture.getDate(), dateDeparture.getDay());
+    this.arrival = new DateReservation(dateArrival.getMonth(), dateArrival.getDate()+1, dateArrival.getDay()+1);
+    this.departure = new DateReservation(dateDeparture.getMonth(), dateDeparture.getDate()+1, dateDeparture.getDay()+1);
   }
-
   onScroll(event: ScrollEventData, scrollView: ScrollView, topView: View) {
     if (scrollView.verticalOffset < 250) {
       const offset = scrollView.verticalOffset / 2;

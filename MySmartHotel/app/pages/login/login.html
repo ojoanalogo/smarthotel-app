@@ -6,15 +6,15 @@
       <Label class="title center" text="MySmartHotel"></Label>
       <Label class="center" text="Introduce tus credenciales de huesped para poder usar la app" textWrap="true"></Label>
       <!-- layout para el acceso -->
-      <StackLayout margin="30" verticalAlignment="center">
+      <StackLayout margin="25" verticalAlignment="center">
         <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
           <StackLayout class="input-field">
-            <Label text="{{'fa-at' | fonticon}} Correo" style="font-size: 18;" class="fa label font-weight-bold m-b-5"></Label>
+            <Label text="{{'fa-at' | fonticon}} Correo" style="font-size: 18; color:#757575" class="fa label font-weight-bold m-b-5"></Label>
             <TextField keyboardtype="email" class="input" hint="ejemplo@dominio.com" [(ngModel)]="user.email"></TextField>
             <StackLayout class="hr-light"></StackLayout>
           </StackLayout>
           <StackLayout class="input-field">
-            <Label text="{{'fa-lock' | fonticon}} Clave" style="font-size: 18;" class="fa label font-weight-bold m-b-5"></Label>
+            <Label text="{{'fa-lock' | fonticon}} Clave" style="font-size: 18; color:#757575" class="fa label font-weight-bold m-b-5"></Label>
             <TextField secure="true" class="input" hint="Tu clave de huesped" [(ngModel)]="user.password"></TextField>
             <StackLayout class="hr-light"></StackLayout>
           </StackLayout>

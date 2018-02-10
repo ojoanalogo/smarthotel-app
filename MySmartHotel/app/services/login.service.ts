@@ -12,9 +12,8 @@ import "rxjs/add/operator/map";
 export class LoginService {
 
     constructor(private http: Http, private router : Router) {}
-
     login(user: User) {
-      if (connectivity.getConnectionType() == connectivity.connectionType.none) {
+       if (connectivity.getConnectionType() == connectivity.connectionType.none) {
         return Observable.throw("");
       }
       let headers = new Headers();
@@ -23,7 +22,8 @@ export class LoginService {
         BackendService.apiURL + "/authme",
         JSON.stringify({
           correo: user.email,
-          clave: user.password
+          clave: user.password,
+          fcm: BackendService.fcmToken
         }),
         { headers: headers }
       )
@@ -41,7 +41,7 @@ export class LoginService {
     }
 
       handleErrors(error: Response) {
-        console.log(JSON.stringify(error.json()));
+        console.dir(JSON.stringify(error.json()));
         return Observable.throw(error);
       }
 }

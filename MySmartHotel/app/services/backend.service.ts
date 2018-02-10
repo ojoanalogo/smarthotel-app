@@ -6,7 +6,7 @@ const userToken = "token";
 @Injectable()
 export class BackendService {
 
-  static apiURL = "http://b3fbcd86.ngrok.io";
+  static apiURL = "http://f8ffeb2a.ngrok.io";
   static placesGoogleURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
   static photosGoogleURL = "https://maps.googleapis.com/maps/api/place/photo?";
   static weatherURL = "https://api.openweathermap.org/data/2.5/";
@@ -18,10 +18,19 @@ export class BackendService {
   static get token(): string {
     return getString("token");
   }
-  
+
   static set token(userToken: string) {
     setString("token", userToken);
   }
+
+  static set fcmToken(fcmToken : string) {
+    setString("fcmToken", fcmToken);
+  }
+
+  static get fcmToken() : string {
+    return getString("fcmToken");
+  }
+
 
   static get userData(): User {
     return JSON.parse(getString("userData"));

@@ -6,6 +6,7 @@ import { TNSFancyAlert } from 'nativescript-fancyalert';
 import { SnackBar } from "nativescript-snackbar";
 import { Place } from "../../models/place.model";
 import * as dialogs from "ui/dialogs";
+
 @Component({
   selector: 'MenuComponent',
   templateUrl: 'pages/menu/menu.html'

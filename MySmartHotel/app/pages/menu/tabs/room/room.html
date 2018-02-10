@@ -1,5 +1,30 @@
-<Label class="h1" text="Habitación {{this.habitacion}}" textWrap="true"></Label>
-<StackLayout>
-    <Image height="80" [src]="lightsState ? '~/assets/room/light-on.png' : '~/assets/room/light-off.png'"></Image>
-    <Button class="btn btn-primary btn-rounded" (tap)="toggleCheck()" text="Toggle"></Button>
-</StackLayout>
+<ScrollView>
+    <StackLayout>
+      <StackLayout class="header">
+        <StackLayout class="glass">
+          <GridLayout rows="*,*,*,*" columns="*,*">
+            <Label row="0" colSpan="2" class="h1 m-l-15" text="Habitación {{this.room}}" textWrap="true"></Label>
+            <StackLayout row="1" col="0">
+              <Image height="80" [src]="lightsState ? '~/assets/room/light-on.png' : '~/assets/room/light-off.png'"></Image>
+              <Button class="btn btn-primary" (tap)="toggleCheck()" [text]="lightsState ? 'Apagar focos' : 'Encender focos'"></Button>
+            </StackLayout>
+            <StackLayout row="1" col="1">
+              <Image src="~/assets/cleaning.png" height="80"></Image>
+              <Button class="btn btn-secondary" [nsRouterLink]="['/cleaning']" text="Limpieza habitación"></Button>
+            </StackLayout>
+            <Label row="2" colSpan="2" class="label" text="Control termostato"></Label>
+            <StackLayout class="thermostat" row="3" colSpan="2">
+              <GridLayout rows="*" columns="32,*,32">
+                <Label row="0" col="0" style="color: #2196F3; font-size: 32;" class="fa center" text="{{'fa-snowflake-o' | fonticon}}"></Label>
+                <Slider row="0" col="1" [minValue]="16" [maxValue]="32" [value]="24"></Slider>
+                <Label row="0" col="2" style="color: #F44336; font-size: 32;" class="fa center" text="{{'fa-fire' | fonticon}}"></Label>
+              </GridLayout>
+            </StackLayout>
+          </GridLayout>
+        </StackLayout>
+          </StackLayout>
+      <StackLayout>
+        <Label text="jejej" textWrap="true"></Label>
+      </StackLayout>
+    </StackLayout>
+</ScrollView>

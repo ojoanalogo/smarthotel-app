@@ -14,6 +14,7 @@ import { MenuComponent } from "./pages/menu/menu.component";
 import { HomeComponent } from "./pages/menu/tabs/home/home.component";
 import { MapComponent } from "./pages/menu/tabs/map/map.component";
 import { RoomComponent } from "./pages/menu/tabs/room/room.component";
+import { CleaningComponent } from "./pages/menu/tabs/room/cleaning/cleaning.component";
 
 import { PlacesComponent } from "./pages/places/places.component";
 
@@ -25,6 +26,7 @@ import { LoginService } from "./services/login.service";
 import { PlacesService } from "./services/places.service";
 import { LocationService } from "./services/location.service";
 import { WeatherService } from "./services/weather.service";
+import { RoomService } from "./services/room.service";
 
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
@@ -58,6 +60,7 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
       HomeComponent,
       MapComponent,
       RoomComponent,
+      CleaningComponent,
       PlacesComponent,
       InfoModalComponent
     ],
@@ -68,7 +71,8 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
       LoginService,
       PlacesService,
       LocationService,
-      WeatherService
+      WeatherService,
+      RoomService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

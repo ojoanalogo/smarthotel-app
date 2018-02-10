@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from "@angular/router";
 import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
 import { LoadingIndicator } from "nativescript-loading-indicator";
 import { BackendService } from "../../../../services/backend.service";
+import * as dialogs from "ui/dialogs";
+
 @Component({
   selector: 'Room',
   templateUrl: 'pages/menu/tabs/room/room.html',
@@ -10,12 +13,12 @@ import { BackendService } from "../../../../services/backend.service";
 
 export class RoomComponent implements OnInit {
   private lightsState : boolean = false;
-  private habitacion : number;
-  constructor() {}
+  private room : number;
+  constructor(private router: Router) {}
   public toggleCheck() {
     this.lightsState = !this.lightsState;
   }
   ngOnInit(): void {
-    this.habitacion = BackendService.userData.room;
+    this.room = BackendService.userData.room;
   }
 }
