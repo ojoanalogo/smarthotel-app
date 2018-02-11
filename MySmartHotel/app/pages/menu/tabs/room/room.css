@@ -16,3 +16,20 @@ StackLayout.thermostat {
   background-color: rgba(255, 255, 255, 0.2);
   display: block;
 }
+StackLayout.page-content Label {
+  color: #9E9E9E;
+  font-size: 12;
+  text-align: center;
+}
+StackLayout.page-content {
+  vertical-align: center;
+  horizontal-align: center;
+}
+StackLayout.page-content > .page-icon {
+  font-size: 72;
+  vertical-align: top;
+  horizontal-align: center;
+  color: #E0E0E0 ;
+  margin-top: 20%;
+  padding-bottom: 15;
+}

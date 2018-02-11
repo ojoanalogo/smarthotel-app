@@ -1,4 +1,13 @@
-<ScrollView height="100%">
+<StackLayout class="page-content" *ngIf="!roomConnected || !iotAvailable">
+    <Label class="page-icon fa" [text]="'fa-wifi' | fonticon"></Label>
+    <Label text="IoT habitación"></Label>
+    <Label [text]="this.iotAvailable ? 'No se pudo establecer conexión con el panel de control' : 'Esta habitación no tiene control inteligente'" textWrap="true"></Label>
+    <Label *ngIf="!iotAvailable" text="Si crees que es un error ve a recepción y enseñale esta pantalla al personal" textWrap="true"></Label>
+    <Button class="btn btn-primary" [text]="this.iotAvailable ? 'Volver a intentar' : 'Actualizar'" (tap)="this.initWorker()"></Button>
+    <Image src="~/assets/cleaning.png" height="80"></Image>
+    <Button class="btn btn-secondary" [nsRouterLink]="['/cleaning']" text="Solicitar limpieza habitación"></Button>
+</StackLayout>
+<ScrollView *ngIf="roomConnected && iotAvailable" height="100%">
     <StackLayout>
         <StackLayout class="glass">
           <GridLayout rows="*,*,*,*,*" columns="*,*">

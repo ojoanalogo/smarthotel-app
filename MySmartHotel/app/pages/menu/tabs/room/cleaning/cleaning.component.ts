@@ -19,7 +19,7 @@ export class CleaningComponent implements OnInit {
   private snackBar: SnackBar;
   constructor(private roomService : RoomService, private router : Router) {}
   ngOnInit(): void {
-    this.snackBar = new SnackBar;
+    this.snackBar = new SnackBar();
   }
   private requestCleaning() : void {
     this.roomService.cleaningRequest(BackendService.userData, this.notes).subscribe((res)=>{

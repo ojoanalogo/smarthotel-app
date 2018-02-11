@@ -55,7 +55,7 @@ export class RoomService {
   }
 
     handleErrors(error: Response) {
-      console.dir(JSON.stringify(error.json()));
+      console.log(JSON.stringify(error.json()));
       return Observable.throw(error);
     }
   }

@@ -35,7 +35,7 @@ export class MapComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loader = new LoadingIndicator();
-    this.snackBar = new SnackBar;
+    this.snackBar = new SnackBar();
     this.locationService.locationSetChange.subscribe(() => {
       this.location = this.locationService.getLocation();
       if (!this.hasConnectivity()) {
