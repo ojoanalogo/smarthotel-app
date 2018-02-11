@@ -7,7 +7,6 @@ import { ScrollView, ScrollEventData } from 'tns-core-modules/ui/scroll-view';
 import { Color } from "color";
 import { Place } from "../../models/place.model";
 import { Location } from "../../models/location.model";
-import { Page } from "ui/page";
 import { PlacesService } from "../../services/places.service";
 import { LoadingIndicator } from "nativescript-loading-indicator";
 import { Image } from "ui/image";
@@ -31,14 +30,13 @@ export class PlacesComponent implements OnInit {
     { id: "shopping_mall", type: "Compras", icon: "~/assets/shopping_mall.png", desc: "Compra cosas chilas", img: "~/assets/shopping_mall.jpg", color: "#8000796B", barColor: "#00796B" }
   );
   private loader: LoadingIndicator;
-  constructor(private route: ActivatedRoute, private page: Page, private placesService: PlacesService, private vcRef: ViewContainerRef,
+  constructor(private route: ActivatedRoute, private placesService: PlacesService, private vcRef: ViewContainerRef,
     private modalService: ModalDialogService) { }
   ngOnInit(): void {
     this.loader = new LoadingIndicator();
     const id = this.route.snapshot.params["id"];
     this.place_type = this.getPlaceType(id);
     this.getPlacesByID(id);
-    this.page.actionBarHidden = true;
   }
 
   private showModal(place: Place) {
@@ -62,7 +60,8 @@ export class PlacesComponent implements OnInit {
           this.loader.hide();
         });
       } else {
-        // TODO: Añadir que no hay lugares
+        //añadir que no hay lugares weon
+        this.loader.hide();
       }
     });
   }

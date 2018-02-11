@@ -34,6 +34,28 @@ export class RoomService {
     .catch(this.handleErrors);
   }
 
+  setRoomData(room : number, feed : string, data? : number) {
+     if (connectivity.getConnectionType() == connectivity.connectionType.none) {
+      return Observable.throw("");
+    }
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http.post(
+      BackendService.apiURL + "/api/mobile/iot/" + room + "/modificarDato",
+      JSON.stringify({
+        token: BackendService.token,
+        feed : feed,
+        data: data
+      }),
+      { headers: headers }
+    )
+    .map(response => response.json())
+    .do(data => {
+      return data;
+    })
+    .catch(this.handleErrors);
+  }
+
   getRoomData(room : number) {
      if (connectivity.getConnectionType() == connectivity.connectionType.none) {
       return Observable.throw("");

@@ -15,8 +15,15 @@ ActionBar {
 Label {
   color: #000;
 }
-.btn-secondary {
+
+.btn-on {
   background-color: #43A047;
   color: #fff;
   border-color: #43A047;
+}
+
+.btn-off {
+background-color: #F44336;
+border-color: #F44336;
+color: #ffffff;
 }

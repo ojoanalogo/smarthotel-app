@@ -10,29 +10,29 @@
 <ScrollView *ngIf="roomConnected && iotAvailable" height="100%">
     <StackLayout>
         <StackLayout class="glass">
-          <GridLayout rows="*,*,*,*,*" columns="*,*">
+          <GridLayout rows="*,*,*" columns="*,*">
             <Label row="0" colSpan="2" class="h2 m-l-15" text="Habitación {{this.room}}" textWrap="true"></Label>
             <StackLayout row="1" col="0">
               <Image height="80" [src]="lightsState ? '~/assets/room/light-on.png' : '~/assets/room/light-off.png'"></Image>
-              <Button class="btn btn-primary" (tap)="lights()" [text]="lightsState ? 'Apagar focos' : 'Encender focos'"></Button>
+              <Button [class]="lightsState ? 'btn btn-off' : 'btn btn-on'" (tap)="lights()" [text]="lightsState ? 'Apagar focos' : 'Encender focos'"></Button>
             </StackLayout>
             <StackLayout row="1" col="1">
               <Image src="~/assets/cleaning.png" height="80"></Image>
-              <Button class="btn btn-secondary" [nsRouterLink]="['/cleaning']" text="Limpieza habitación"></Button>
+              <Button class="btn btn-primary" [nsRouterLink]="['/cleaning']" text="Limpieza habitación"></Button>
             </StackLayout>
             <StackLayout row="2" col="0">
               <Image src="~/assets/tv.png" height="80"></Image>
-              <Button class="btn btn-primary" (tap)="tv()" text="TV"></Button>
+              <Button [class]="tvState ? 'btn btn-off' : 'btn btn-on'" (tap)="tv()" [text]="tvState ? 'Apagar TV' : 'Encender TV'"></Button>
             </StackLayout>
             <StackLayout row="2" col="1">
               <Image src="~/assets/air-aconditioner.png" height="80"></Image>
-              <Button class="btn btn-primary" (tap)="airAconditioner()" text="Clima"></Button>
+              <Button [class]="miniSplitState ? 'btn btn-off' : 'btn btn-on'" (tap)="miniSplit()" [text]="miniSplitState ? 'Apagar clima' : 'Encender clima'"></Button>
             </StackLayout>
-            <Label row="3" colSpan="2" class="h5 text-muted m-l-10" text="Control termostato {{thermostat}}°c"></Label>
-            <StackLayout class="thermostat" row="4" colSpan="2">
+            <StackLayout class="thermostat" row="3" colSpan="2">
+              <Label class="h5 text-muted m-l-10" text="Control termostato {{thermostat}}°c"></Label>
               <GridLayout rows="*,*" columns="32,*,32">
                 <Label row="0" col="0" style="color: #2196F3; font-size: 32;" class="fa center m-l-10" text="{{'fa-snowflake-o' | fonticon}}"></Label>
-                <Slider row="0" col="1" [minValue]="16" [maxValue]="32" [(ngModel)]="thermostat"></Slider>
+                <Slider row="0" col="1" [minValue]="14" [maxValue]="28" [(ngModel)]="thermostat"></Slider>
                 <Label row="0" col="2" style="color: #F44336; font-size: 32;" class="fa center m-r-10" text="{{'fa-fire' | fonticon}}"></Label>
                 <Button row="1" col="1" class="btn btn-primary" text="Actualizar termostato" (tap)="updateThermostat()"></Button>
               </GridLayout>

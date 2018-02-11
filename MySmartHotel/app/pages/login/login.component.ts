@@ -50,8 +50,7 @@ export class LoginComponent implements OnInit {
       this.loader.hide();
       console.dir(res);
       TNSFancyAlert.showError("Datos incorrectos", "Correo/clave no validos", "Entendido");
-    }
-   );
+    });
     }
   }
 

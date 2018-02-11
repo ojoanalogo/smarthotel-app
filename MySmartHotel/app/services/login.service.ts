@@ -12,6 +12,7 @@ import "rxjs/add/operator/map";
 export class LoginService {
 
     constructor(private http: Http, private router : Router) {}
+
     login(user: User) {
        if (connectivity.getConnectionType() == connectivity.connectionType.none) {
         return Observable.throw("");
@@ -24,6 +25,26 @@ export class LoginService {
           correo: user.email,
           clave: user.password,
           fcm: BackendService.fcmToken
+        }),
+        { headers: headers }
+      )
+      .map(response => response.json())
+      .do(data => {
+        return data;
+      })
+      .catch(this.handleErrors);
+    }
+
+    checkReservation(user: User) {
+       if (connectivity.getConnectionType() == connectivity.connectionType.none) {
+        return Observable.throw("");
+      }
+      let headers = new Headers();
+      headers.append("Content-Type", "application/json");
+      return this.http.post(
+        BackendService.apiURL + "/api/huespedes/checarReservacion",
+        JSON.stringify({
+          correo: user.email
         }),
         { headers: headers }
       )
