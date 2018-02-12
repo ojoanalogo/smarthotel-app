@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~4.4.1",
     "@angular/router": "~4.4.1",
     "class-validator": "^0.7.3",
+    "facebook-events-by-location-core": "^0.9.1",
     "nativescript-angular": "~4.4.0",
     "nativescript-checkbox": "^3.0.3",
     "nativescript-directions": "^1.1.2",

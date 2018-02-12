@@ -18,8 +18,8 @@ export class MenuComponent implements OnInit {
   private snackBar: SnackBar;
   constructor(private locationService: LocationService, private placesService: PlacesService, private loginService: LoginService) { }
   ngOnInit(): void {
+    this.snackBar = new SnackBar();
     this.locationService.setupLocation().subscribe((location) => {
-      this.snackBar = new SnackBar();
       this.snackBar.simple('Ubicación obtenida');
     }, (error) => {
       TNSFancyAlert.showError("Error al activar ubicación", "Es necesario que actives el GPS de tu dispositivo para poder usar la app correctamente", "Entendido");

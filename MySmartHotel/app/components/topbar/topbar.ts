@@ -10,7 +10,8 @@ import { User } from "../../models/user.model";
 @Component({
   selector: 'TopBar',
   template: `<ActionBar title="MySmartHotel">
-    <NavigationButton (tap)="toggleSidedrawer()" icon="res://ic_menu_white_24dp"></NavigationButton>
+  <ActionItem ios.systemIcon="10" (tap)="toggleSidedrawer()"></ActionItem>
+    <NavigationButton (tap)="toggleSidedrawer()" text="Volver" icon="res://ic_menu_white_24dp"></NavigationButton>
   </ActionBar>`,
   styles: [`.fa {
     font-family: FontAwesome, fontawesome-webfont;

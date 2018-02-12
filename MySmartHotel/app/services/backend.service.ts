@@ -9,6 +9,7 @@ export class BackendService {
   static apiURL = "http://6ca8fb7d.ngrok.io";
   static placesGoogleURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
   static photosGoogleURL = "https://maps.googleapis.com/maps/api/place/photo?";
+  static fbURL = "https://graph.facebook.com/v2.12/";
   static weatherURL = "https://api.openweathermap.org/data/2.5/";
 
   static isLoggedIn(): boolean {

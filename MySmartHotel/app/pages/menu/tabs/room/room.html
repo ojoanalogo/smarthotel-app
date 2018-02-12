@@ -10,7 +10,7 @@
 <ScrollView *ngIf="roomConnected && iotAvailable" height="100%">
     <StackLayout>
         <StackLayout class="glass">
-          <GridLayout rows="*,*,*" columns="*,*">
+          <GridLayout rows="*,*,*,*" columns="*,*">
             <Label row="0" colSpan="2" class="h2 m-l-15" text="Habitación {{this.room}}" textWrap="true"></Label>
             <StackLayout row="1" col="0">
               <Image height="80" [src]="lightsState ? '~/assets/room/light-on.png' : '~/assets/room/light-off.png'"></Image>
