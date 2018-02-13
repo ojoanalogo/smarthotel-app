@@ -24,7 +24,6 @@ import { AuthGuard } from "./services/authguard.service";
 import { BackendService } from "./services/backend.service";
 import { LoginService } from "./services/login.service";
 import { PlacesService } from "./services/places.service";
-import { EventsService } from "./services/events.service";
 import { LocationService } from "./services/location.service";
 import { WeatherService } from "./services/weather.service";
 import { RoomService } from "./services/room.service";
@@ -71,7 +70,6 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
       AuthGuard,
       LoginService,
       PlacesService,
-      EventsService,
       LocationService,
       WeatherService,
       RoomService
