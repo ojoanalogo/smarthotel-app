@@ -1,3 +1,10 @@
+/**
+@name: MySmartHotel
+@author: Alfonso Reyes Cortés (arc980103@gmail.com)
+@desc: Servicio de clima de la aplicación
+**/
+
+// Imports del servicio
 import { Injectable } from "@angular/core";
 import { Http, Headers, Response } from "@angular/http";
 import { Observable } from "rxjs/Rx";
@@ -8,12 +15,19 @@ import * as appSettings from "application-settings";
 import * as connectivity from "tns-core-modules/connectivity";
 import "rxjs/add/operator/map";
 
+// Registro del servicio
 @Injectable()
 export class WeatherService {
 
+  // Constructor del servicio
   constructor(private http: Http) { }
 
-  public getWeather(location: Location): Observable<any> {
+  /**
+  * Retorna un objeto de tipo "Weather" al hacer una llamada al servicio de OpenWeather
+  * @param {Location} location - Objeto location con latitud y longitud.
+  * @returns {Observable<Weather>} - Retorna un observable con el objeto Weather
+  */
+  public getWeather(location: Location): Observable<Weather> {
     if (connectivity.getConnectionType() == connectivity.connectionType.none) {
       return Observable.throw("");
     }
@@ -33,6 +47,10 @@ export class WeatherService {
       });
   }
 
+  /**
+  * Retorna un condicional si el clima guardado en la base de datos local ya tiene más de 1 hora almacenado
+  * @returns {boolean} - Retorna si es necesario actualizar
+  */
   public shouldUpdate(): boolean {
     if (appSettings.getString("weatherData") == undefined) {
       return true;
@@ -42,10 +60,20 @@ export class WeatherService {
     let diff = currentDate.getTime() - storedDate.getTime();
     return diff / 60000 > 80;
   }
+
+  /**
+  * Almacena el objeto Weather en la base de datos local
+  * @param {Weather} weather - Objeto Weather
+  */
   public storeWeather(weather: Weather): void {
     appSettings.setString("weatherData", JSON.stringify(weather));
   }
-  public getSavedWeather(): Weather {
+
+  /**
+  * Retorna el objeto Weather almacenado en la base de datos local
+  * @return {Weather} - Objeto Weather
+  */
+  public getSavedWeather() : Weather {
     return JSON.parse(appSettings.getString("weatherData", "novalue"));
   }
 

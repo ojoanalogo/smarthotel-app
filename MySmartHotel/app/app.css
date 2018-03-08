@@ -1,17 +1,27 @@
+/**
+@name: MySmartHotel
+@author: Alfonso Reyes Cortés (arc980103@gmail.com)
+@desc: Hoja de estilos global CSS para la aplicación
+**/
+
 @import '/tns_modules/nativescript-theme-core/css/core.light.css';
 @import '/assets/custom.css';
+
 ActionBar {
   color: #fff;
   background-color: #009688;
 }
+
 .center {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
+
 .fa {
   font-family: FontAwesome, fontawesome-webfont;
 }
+
 Label {
   color: #000;
 }

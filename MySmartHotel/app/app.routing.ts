@@ -1,3 +1,10 @@
+/**
+@name: MySmartHotel
+@author: Alfonso Reyes Cortés (arc980103@gmail.com)
+@desc: Archivo de rutas de la aplicación
+**/
+
+// Imports del modulo
 import { NgModule } from "@angular/core";
 import { Routes, CanActivate } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
@@ -8,6 +15,7 @@ import { LoginComponent } from "./pages/login/login.component";
 import { PlacesComponent } from "./pages/places/places.component";
 import { AuthGuard } from "./services/authguard.service";
 
+// Rutas de la aplicación
 const routes: Routes = [
     { path: "", redirectTo: "/menu", pathMatch: "full" },
     { path: "login", component: LoginComponent},
@@ -16,6 +24,7 @@ const routes: Routes = [
     { path: "places/:id", component: PlacesComponent, canActivate:[AuthGuard]}
 ];
 
+// Registro de modulo
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],
     exports: [NativeScriptRouterModule]
