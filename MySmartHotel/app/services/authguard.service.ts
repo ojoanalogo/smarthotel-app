@@ -1,3 +1,10 @@
+/**
+@name: MySmartHotel
+@author: Alfonso Reyes Cortés (arc980103@gmail.com)
+@desc: Servicio Authguard
+**/
+
+// Imports del servicio
 import { Injectable } from "@angular/core";
 import { CanActivate, Router } from "@angular/router";
 

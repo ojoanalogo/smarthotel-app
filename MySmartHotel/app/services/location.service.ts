@@ -1,20 +1,35 @@
+/**
+@name: MySmartHotel
+@author: Alfonso Reyes Cortés (arc980103@gmail.com)
+@desc: Servicio de ubicación
+**/
+
+// Imports del servicio
 import { Injectable } from '@angular/core';
-import * as Geolocation from "nativescript-geolocation";
 import { Accuracy } from "ui/enums";
 import { Location } from "../models/location.model";
 import { Observable, Subject } from "rxjs/Rx";
+import * as Geolocation from "nativescript-geolocation";
 
+// Registro del servicio
 @Injectable()
 export class LocationService {
   private location: Location;
   private locationSet: boolean;
-  public locationSetChange: Subject<boolean> = new Subject<boolean>();
+  public locationSetChange: Subject<boolean> = new Subject<boolean>(); //subject para subscribirse a cambio
+
+  // Constructor del servicio
   constructor() {
     this.location = new Location();
     this.locationSetChange.subscribe((value) => {
-      this.locationSet = value
+      this.locationSet = value;
     });
   }
+
+  /**
+  * Pide permiso al sistema para obtener la ubicación del telefono
+  * @return {Observable<Location>} retorna un observable con el estatus de la solicitud de ubicación
+  */
   public setupLocation(): Observable<Location> {
     return Observable.create(observer => {
       Geolocation.enableLocationRequest().then(() => {
@@ -33,10 +48,20 @@ export class LocationService {
     });
   }
 
+  /**
+  * Retorna la ubicación del usuario
+  * @returns {Location} ubicación del usuario
+  */
   public getLocation(): Location {
     return this.location;
   }
 
+  /**
+  * Obtiene la distancia en float que existe de una coordenada a otra
+  * @param {Location} location1 - Objeto location 1
+  * @param {Location} location2 - Objeto location 2
+  * @return {double} - distancia en formato float
+  */
   public getDistance(location1 : Location, location2: Location) {
    var R = 6371; // Radius of the earth in km
    var dLat = this.deg2rad(location2.latitude-location1.latitude);  // deg2rad below
@@ -49,8 +74,13 @@ export class LocationService {
    var d = R * c; // Distance in km
    return d;
  }
- private deg2rad(deg) {
+
+ /**
+ * Convierte de grados a radianes
+ * @param {number} deg - grados
+ * @return {rad} grados convertidos en radianes
+ */
+ private deg2rad(deg : number) : number {
    return deg * (Math.PI/180);
  }
-
 }
